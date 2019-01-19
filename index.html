@@ -19,115 +19,241 @@
   <link href="vendor/animsition/js/animsition.min.js">
 
   <style type="text/css">
-    .row{
-          margin-right: 0px;
-          margin-left: 0px;
-    }
-    .btn-rounded{
-          -webkit-border-radius: 10em;
-          border-radius: 10em;  
-    }
-    .view {
-    background: url("img/bg/home.jpg")no-repeat center center;
-    background-size: cover;
-    }
-
-    /*@media (min-width: 768px) {
-        .view {
-            overflow: visible;
-            margin-top: -56px;
+    @media (min-width: 800px) and (max-width: 850px) {
+            .navbar:not(.top-nav-collapse) {
+                background: #1C2331!important;
+            }
         }
-    }*/
-    .navbar {
-        z-index: 1;
-        background-color: transparent;
-    }
+       
+  .row{
+        margin-right: 0px;
+        margin-left: 0px;
+  }
+  .btn-rounded{
+        -webkit-border-radius: 10em;
+        border-radius: 10em;  
+  }
+  .view {
+  background: url("img/bg/home.jpg")no-repeat center center;
+  background-size: cover;
+  }
 
-    .top-nav-collapse{
-        background-color: #4285f4;
-    }
+  /*@media (min-width: 768px) {
+      .view {
+          overflow: visible;
+          margin-top: -56px;
+      }
+  }*/
+  .navbar {
+      z-index: 1;
+      background-color: transparent;
+  }
 
-    .img-fluid{
-        width: 100%;
-        height: 100%;
-    }
+  .top-nav-collapse{
+      background-color: #4285f4;
+  }
 
-    html,
-    body,
-    header,
-    .view {
+  .img-fluid{
+      width: 100%;
       height: 100%;
-    }
-    
+  }
+
+  html,
+  body,
+  header,
+  .view {
+    height: 100%;
+  }
+  
   </style>
 </head>
 
 <body>
 
-  <!--Main Navigation-->
-<header>
-  <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
-    <a class="navbar-brand" href="#"><strong>Travel Blog</strong></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+<!-- Navbar -->
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+  <a class="navbar-brand" href="#"><strong>Travel Blog</strong></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Places</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Blog</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Contact</a>
-        </li>
-      </ul>
-      <ul class="navbar-nav nav-flex-icons">
-        <li class="nav-item">
-          <button onclick="location.href = 'login.html';" class="btn btn-rounded btn-sm aqua-gradient">Login</button>
-        </li>
-        <li class="nav-item">
-          <button onclick="location.href = 'signup.html';" class="btn btn-rounded btn-sm aqua-gradient">Signup</button>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link"><i class="fa fa-facebook"></i></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link"><i class="fa fa-twitter"></i></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link"><i class="fa fa-instagram"></i></a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-  <div class="view intro-2">
-    <div class="full-bg-img">
-      <div class="mask rgba-black-strong flex-center">
-        <div class="container">
-          <div class="white-text text-center wow fadeInUp">
-            <h2>Travel Blog</h2>
-            <h5></h5>
-            <br>
-            <p> </p>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Places</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Blog</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Contact</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav nav-flex-icons">
+      <li class="nav-item">
+        <button onclick="location.href = 'login.html';" class="btn btn-rounded btn-sm aqua-gradient">Login</button>
+      </li>
+      <li class="nav-item">
+        <button onclick="location.href = 'signup.html';" class="btn btn-rounded btn-sm aqua-gradient">Signup</button>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"><i class="fa fa-facebook"></i></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"><i class="fa fa-twitter"></i></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"><i class="fa fa-instagram"></i></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<!-- Navbar -->
+
+<!--Carousel Wrapper-->
+<div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel">
+
+  <!--Indicators-->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-1z" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-1z" data-slide-to="1"></li>
+    <li data-target="#carousel-example-1z" data-slide-to="2"></li>
+  </ol>
+  <!--/.Indicators-->
+
+  <!--Slides-->
+  <div class="carousel-inner" role="listbox">
+
+    <!--First slide-->
+    <div class="carousel-item active">
+      <div class="view" style="background-image: url('https://mdbootstrap.com/img/Photos/Others/images/77.jpg'); background-repeat: no-repeat; background-size: cover;">
+
+        <!-- Mask & flexbox options-->
+        <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+
+          <!-- Content -->
+          <div class="text-center white-text mx-5 wow fadeIn">
+            <h1 class="mb-4">
+              <strong>Learn Bootstrap 4 with MDB</strong>
+            </h1>
+
+            <p>
+              <strong>Best & free guide of responsive web design</strong>
+            </p>
+
+            <p class="mb-4 d-none d-md-block">
+              <strong>The most comprehensive tutorial for the Bootstrap 4. Loved by over 500 000 users. Video and written versions
+                available. Create your own, stunning website.</strong>
+            </p>
+
+            <a target="_blank" href="https://mdbootstrap.com/education/bootstrap/" class="btn btn-outline-white btn-lg">Start free tutorial
+              <i class="fas fa-graduation-cap ml-2"></i>
+            </a>
           </div>
+          <!-- Content -->
+
         </div>
+        <!-- Mask & flexbox options-->
+
       </div>
     </div>
+    <!--/First slide-->
+
+    <!--Second slide-->
+    <div class="carousel-item">
+      <div class="view" style="background-image: url('https://mdbootstrap.com/img/Photos/Others/images/47.jpg'); background-repeat: no-repeat; background-size: cover;">
+
+        <!-- Mask & flexbox options-->
+        <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+
+          <!-- Content -->
+          <div class="text-center white-text mx-5 wow fadeIn">
+            <h1 class="mb-4">
+              <strong>Learn Bootstrap 4 with MDB</strong>
+            </h1>
+
+            <p>
+              <strong>Best & free guide of responsive web design</strong>
+            </p>
+
+            <p class="mb-4 d-none d-md-block">
+              <strong>The most comprehensive tutorial for the Bootstrap 4. Loved by over 500 000 users. Video and written versions
+                available. Create your own, stunning website.</strong>
+            </p>
+
+            <a target="_blank" href="https://mdbootstrap.com/education/bootstrap/" class="btn btn-outline-white btn-lg">Start free tutorial
+              <i class="fas fa-graduation-cap ml-2"></i>
+            </a>
+          </div>
+          <!-- Content -->
+
+        </div>
+        <!-- Mask & flexbox options-->
+
+      </div>
+    </div>
+    <!--/Second slide-->
+
+    <!--Third slide-->
+    <div class="carousel-item">
+      <div class="view" style="background-image: url('https://mdbootstrap.com/img/Photos/Others/images/79.jpg'); background-repeat: no-repeat; background-size: cover;">
+
+        <!-- Mask & flexbox options-->
+        <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+
+          <!-- Content -->
+          <div class="text-center white-text mx-5 wow fadeIn">
+            <h1 class="mb-4">
+              <strong>Learn Bootstrap 4 with MDB</strong>
+            </h1>
+
+            <p>
+              <strong>Best & free guide of responsive web design</strong>
+            </p>
+
+            <p class="mb-4 d-none d-md-block">
+              <strong>The most comprehensive tutorial for the Bootstrap 4. Loved by over 500 000 users. Video and written versions
+                available. Create your own, stunning website.</strong>
+            </p>
+
+            <a target="_blank" href="https://mdbootstrap.com/education/bootstrap/" class="btn btn-outline-white btn-lg">Start free tutorial
+              <i class="fas fa-graduation-cap ml-2"></i>
+            </a>
+          </div>
+          <!-- Content -->
+
+        </div>
+        <!-- Mask & flexbox options-->
+
+      </div>
+    </div>
+    <!--/Third slide-->
+
   </div>
+  <!--/.Slides-->
 
-</header>
-<!--Main Navigation-->
+  <!--Controls-->
+  <a class="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+  <!--/.Controls-->
 
+</div>
+<!--/.Carousel Wrapper-->
+
+<!--Main layout-->
 <section style="margin-bottom: 7rem !important">
 
   <!-- Section heading -->
@@ -253,19 +379,26 @@
   <!-- Grid row -->
 
 </section>
-<!-- Section: Blog v.3 -->
-  <!-- /Start your project here-->
+<!--Main layout-->
+
+<!--Footer-->
+
+<!--/.Footer-->
 
   <!-- SCRIPTS -->
-   <!-- JQuery -->
+  <!-- JQuery -->
   <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
   <!-- Bootstrap tooltips -->
   <script type="text/javascript" src="js/popper.min.js"></script>
   <!-- Bootstrap core JavaScript -->
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
-
   <!-- MDB core JavaScript -->
   <script type="text/javascript" src="js/mdb.min.js"></script>
+    <!-- Initializations -->
+<script type="text/javascript">
+  // Animations initialization
+  new WOW().init();
+</script>
 </body>
 
 </html>
