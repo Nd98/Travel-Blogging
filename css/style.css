@@ -1,8 +1,11 @@
 /* Required height of parents of the Full Page Carousel for proper displaying carousel itself */
+
 html,
 body,
+header,
 .view {
-  height: 100%; }
+  height: 100%;
+}
 
 /* Full Page Carousel itself*/
 .carousel {
@@ -28,3 +31,129 @@ body,
 /* Footer color for sake of consistency with Navbar */
 .page-footer {
   background-color: #1C2331; }
+
+  @media (min-width: 800px) and (max-width: 850px) {
+    .navbar:not(.top-nav-collapse) {
+        background: #1C2331!important;
+    }
+}
+
+.row{
+margin-right: 0px;
+margin-left: 0px;
+}
+.btn-rounded{
+-webkit-border-radius: 10em;
+border-radius: 10em;  
+}
+.view {
+background: url("img/bg/home.jpg")no-repeat center center;
+background-size: cover;
+}
+
+/*@media (min-width: 768px) {
+.view {
+  overflow: visible;
+  margin-top: -56px;
+}
+}*/
+.navbar {
+z-index: 1;
+background-color: transparent;
+}
+
+.top-nav-collapse{
+background-color: #4285f4;
+}
+
+.img-fluid{
+width: 100%;
+height: 100%;
+}
+
+.pp-title{
+font-weight: 500;
+}
+
+.pp-title:hover{
+text-decoration: underline;
+}
+
+.pp-author{
+font-weight: 500;
+font-size: 13px;
+color: white;
+background: #007bff;
+padding: 5px;
+box-shadow: grey 1px 1px 3px 0px;
+}
+
+.no-of-posts{
+font-weight: 500;
+font-size: 10px;
+}
+
+.date{
+margin-left: 0.7rem;
+font-weight: 500;
+font-size: 10px;
+}
+
+.ft{
+  height: 300px;
+}
+.ft1{
+  margin-top: 0px;
+  margin-left: 90px;
+}
+.ft-img{
+  background-image: url("../index1.jpg");
+  height: 170px;
+  width: 170px;
+  margin-top: 25px;
+  margin-left: 70px;
+}
+.ml{
+  margin-right: 15px;
+  color: white;
+}
+.abt{
+  margin-left: 30px;
+
+}
+.copyright{
+  font-weight: 300;
+  margin-left: 600px;     
+   color: white;
+}
+
+h5#abt-head{
+  margin-top: 20px;
+  color: white;
+}
+p#abt-head{
+
+  color: white;
+}
+
+.form-ctrl{
+  display: block;
+  width: 70%;
+  font-size: 1rem;
+  color: #495057;
+  background-color: #fff;
+    background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    }
+    
+  h5#abt-head-ft
+  { color: white;
+    margin-top: 25px;
+    
+  }
+  p#abt-head-p{
+    color: white;
+    margin-left: 10px;
+  }
