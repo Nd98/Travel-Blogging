@@ -162,11 +162,12 @@ p#abt-head{
     margin-left: 10px;
   }
 .fnt-img{
-  color: black !important;
-  font-size: x-large;
-   font-weight: 700; 
+  color: white !important;
+  font-size: 200% !important;
+   font-weight: 400; 
    text-align:center;
-    margin-top: 98px;
+   background: rgba(0, 0, 0, 0.3);
+   z-index: 5;
 }
 
 
