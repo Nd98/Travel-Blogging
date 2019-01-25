@@ -161,6 +161,14 @@ p#abt-head{
     color: white;
     margin-left: 10px;
   }
+.fnt-img{
+  color: black !important;
+  font-size: x-large;
+   font-weight: 700; 
+   text-align:center;
+    margin-top: 98px;
+}
+
 
   .carousel-title{
     text-shadow:    /* first set */
