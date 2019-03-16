@@ -1,3 +1,10 @@
+<?php 
+	session_start(); 
+	if(isset($_SESSION['username'])){
+		header('Location: index.php');
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,6 +31,12 @@
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/login.css">
 <!--===============================================================================================-->
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+<!-- ==============================================================================================-->
+	<script src="js/bootstrap-notify.js"></script>
+<!-- ============================================================================================= -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<!-- ============================================================================================= -->
 </head>
 <body>
 	
@@ -61,7 +74,7 @@
 					</button>
 				</div>
 
-				<div class="text-center p-b-20" style="padding-top: 25px">
+				<!-- <div class="text-center p-b-20" style="padding-top: 25px">
 					<span class="txt1">
 						Or login with
 					</span>
@@ -75,9 +88,9 @@
 					<a href="#" class="login100-social-item">
 						<img src="img/icons/icon-google.png" alt="GOOGLE">
 					</a>
-				</div>
+				</div> -->
 
-				<div class="text-center p-b-20">
+				<div class="text-center p-b-20" style="padding-top: 30px">
 					<span class="txt1">
 						Already registered?
 						<a href="login.php" class="txt2 hov1">
@@ -91,6 +104,91 @@
 			
 		</div>
 	</div>
+
+
+	<script>
+  function setNotify(message){
+
+    $.notify({
+        title: "",
+        message: message,
+        icon: '',
+        target: "_blank"
+        },{
+
+        // where to append the notification
+        element: 'body',
+
+        // static | fixed | relative | absolute
+        position: 'absolute',
+
+        // notification type
+        type: "info",
+
+        // is dismissable?
+        allow_dismiss: true,
+
+        // allows duplicate notifications
+        allow_duplicates: true,
+
+        // put the newest notification on the top
+        newest_on_top: false,
+
+        // shows a progress bar
+        showProgressbar: false,
+
+        // placement options
+        placement: {
+            from: "top",
+            align: "right"
+        },
+
+        // offset in pixels
+        offset: 20,
+
+        // space between notifications
+        spacing: 10,
+
+        // z-index property
+        z_index: 1031,
+
+        // delay in milliseconds
+        delay: 5000,
+
+        // timer in millisconeds
+        timer: 1000,
+
+        // URL target property
+        url_target: '_blank',
+
+        // pause the timer on hover
+        mouse_over: null,
+
+        // animation options
+        animate: {
+            enter: 'animated fadeInDown',
+            exit: 'animated fadeOutUp'
+        },
+
+        // or 'image'
+        icon_type: 'class',
+
+        // custom template
+        template: '<div data-notify="container" class="col-xs-11 col-sm-4 alert alert-{0}" style="background-color: #bd59d4;color:white" role="alert"><button type="button" aria-hidden="true" class="close" data-notify="dismiss">&times;</button><span data-notify="icon"></span> <span data-notify="title">{1}</span> <span data-notify="message">{2}</span><div class="progress" data-notify="progressbar"><div class="progress-bar progress-bar-{0}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div></div><a href="{3}" target="{4}" data-notify="url"></a></div>'
+        
+		});
+	}
+
+    </script>
+
+<?php 
+	if(isset($_SESSION['error']))
+	{
+		echo '<script>setNotify("'.$_SESSION['error'].'");</script>';
+	}
+
+	session_unset();
+?>
 	
 	
 

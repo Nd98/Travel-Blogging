@@ -14,16 +14,14 @@
 
     mysqli_select_db($con,$db);
 
-    function getUser($sql){
+    function getData($sql){
       global $con;
       $result = mysqli_query($con,$sql);
-      $row = mysqli_fetch_assoc($result);
-
-      return $row;
+      return $result;
 
     }
 
-    function setUser($sql){
+    function setData($sql){
       global $con;
       return mysqli_query($con,$sql);
       

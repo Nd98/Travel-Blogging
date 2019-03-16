@@ -1,5 +1,6 @@
 <?php 
 include_once('../database/connection.php');
+session_start();
 
 function registerUser(){
     global $con;
@@ -12,7 +13,11 @@ function registerUser(){
 
     $sql = "INSERT INTO `user_details`(`username`, `email`, `password`) VALUES('".$user."','".$email."','".$password."')";
 
-    $isRegistered = setUser($sql);
+    $isRegistered = setData($sql);
+
+    if($isRegistered){
+        $_SESSION['username'] = $user;
+    }
 
     return $isRegistered;
     

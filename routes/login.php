@@ -1,8 +1,8 @@
 <?php
     require('../controllers/loginController.php');
-    if(isset($_POST)){
+    if($_POST!=null){
         if(!loginUser()){
-            $_GET['error'] = "Username or Password didn't match";
+            $_SESSION['error'] = "Username or Password didn't match";
             header('Location: ../login.php');
         }
         else{
@@ -11,7 +11,7 @@
     }
 
     else{
-        $_GET['error'] = "This page only accepts post requests";
+        $_SESSION['error'] = "This page only accepts post requests";
         header('Location: error.php');
     }
      

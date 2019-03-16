@@ -1,3 +1,10 @@
+<?php
+	session_start();
+	if(isset($_SESSION['username'])){
+		header('Location: index.php');
+	} 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,10 +32,12 @@
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/login.css">
 <!--===============================================================================================-->
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+<!-- ==============================================================================================-->
+<script src="js/bootstrap-notify.js"></script>
+<!-- ============================================================================================= -->
 </head>
 <body>
-
-	<?php if(isset($_GET['error'])){echo '<script>setNotify('.$_GET['error'].');</script>';}?>
 	
 	<div class="container-login100" style="background-image: url('img/bg/bg-01.jpg');">
 		<div class="wrap-login100 p-l-55 p-r-55 p-b-30" style="padding-top: 30px;margin-top: 50px">
@@ -53,7 +62,7 @@
 					</button>
 				</div>
 
-				<div class="text-center p-b-20" style="padding-top: 25px">
+				<!-- <div class="text-center p-b-20" style="padding-top: 25px">
 					<span class="txt1">
 						Or login with
 					</span>
@@ -67,9 +76,9 @@
 					<a href="#" class="login100-social-item">
 						<img src="img/icons/icon-google.png" alt="GOOGLE">
 					</a>
-				</div>
+				</div> -->
 
-				<div class="text-center p-b-20">
+				<div class="text-center p-b-20" style="padding-top:30px">
 					<span class="txt1">
 						Not yet registered?
 						<a href="signup.php" class="txt2 hov1">
@@ -91,9 +100,9 @@
   function setNotify(message){
 
     $.notify({
-        title: "<b>Error</b>",
+        title: "",
         message: message,
-        icon: 'glyphicon glyphicon-star',
+        icon: '',
         target: "_blank"
         },{
 
@@ -104,7 +113,7 @@
         position: 'absolute',
 
         // notification type
-        type: "info",
+        type: "error",
 
         // is dismissable?
         allow_dismiss: true,
@@ -155,12 +164,21 @@
         icon_type: 'class',
 
         // custom template
-        template: '<div data-notify="container" class="col-xs-11 col-sm-4 alert alert-{0}" style="background-color: white" role="alert"><button type="button" aria-hidden="true" class="close" data-notify="dismiss">&times;</button><span data-notify="icon"></span> <span data-notify="title">{1}</span> <span data-notify="message">{2}</span><div class="progress" data-notify="progressbar"><div class="progress-bar progress-bar-{0}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div></div><a href="{3}" target="{4}" data-notify="url"></a></div>'
+        template: '<div data-notify="container" class="col-xs-11 col-sm-4 alert alert-{0}" style="background-color:#bd59d4;color:white" role="alert"><button type="button" aria-hidden="true" class="close" data-notify="dismiss">&times;</button><span data-notify="icon"></span> <span data-notify="title">{1}</span> <span data-notify="message">{2}</span><div class="progress" data-notify="progressbar"><div class="progress-bar progress-bar-{0}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div></div><a href="{3}" target="{4}" data-notify="url"></a></div>'
         
 		});
 	}
 
     </script>
+
+<?php 
+	if(isset($_SESSION['error']))
+	{
+		echo '<script>setNotify("'.$_SESSION['error'].'");</script>';
+	}
+
+	session_unset();
+?>
 
 	
 <!--===============================================================================================-->
@@ -179,7 +197,6 @@
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
-	<script src="js/bootstrap-notify.js"></script>
 
 </body>
 </html>

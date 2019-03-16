@@ -1,8 +1,8 @@
 <?php
     require('../controllers/registerController.php');
-    if(isset($_POST)){
+    if($_POST!=null){
         if(!registerUser()){
-            $_GET['error'] = "Some error occured";
+            $_SESSION['error'] = "Some error occured";
             header('Location: ../signup.php');
         }
         else{
@@ -11,7 +11,7 @@
     }
 
     else{
-        $_GET['error'] = "This page only accepts post requests";
+        $_SESSION['error'] = "This page only accepts post requests";
         header('Location: error.php');
     }
      
