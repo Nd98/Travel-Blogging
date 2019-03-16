@@ -15,7 +15,7 @@
     mysqli_select_db($con,$db);
 
     function getUser($sql){
-      
+      global $con;
       $result = mysqli_query($con,$sql);
       $row = mysqli_fetch_assoc($result);
 
@@ -24,7 +24,7 @@
     }
 
     function setUser($sql){
-
+      global $con;
       return mysqli_query($con,$sql);
       
     }

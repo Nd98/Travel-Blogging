@@ -10,7 +10,7 @@ function registerUser(){
 
     $password = md5($password);
 
-    $sql = "INSERT INTO `user_details` VALUES('".$user."','".$email."','".$password."')";
+    $sql = "INSERT INTO `user_details`(`username`, `email`, `password`) VALUES('".$user."','".$email."','".$password."')";
 
     $isRegistered = setUser($sql);
 

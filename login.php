@@ -8,6 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="font/font-awesome-4.7.0/css/font-awesome.min.css">
+	<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"> -->
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="font/iconic/css/material-design-iconic-font.min.css">
 <!--===============================================================================================-->
@@ -26,7 +27,8 @@
 <!--===============================================================================================-->
 </head>
 <body>
-	
+
+	<?php if(isset($_GET['error'])){echo '<script>setNotify('.$_GET['error'].');</script>';}?>
 	
 	<div class="container-login100" style="background-image: url('img/bg/bg-01.jpg');">
 		<div class="wrap-login100 p-l-55 p-r-55 p-b-30" style="padding-top: 30px;margin-top: 50px">
@@ -70,7 +72,7 @@
 				<div class="text-center p-b-20">
 					<span class="txt1">
 						Not yet registered?
-						<a href="signup.html" class="txt2 hov1">
+						<a href="signup.php" class="txt2 hov1">
 						&nbsp;Sign Up
 					</a>
 					</span>
@@ -84,6 +86,82 @@
 	
 
 	<div id="dropDownSelect1"></div>
+
+<script>
+  function setNotify(message){
+
+    $.notify({
+        title: "<b>Error</b>",
+        message: message,
+        icon: 'glyphicon glyphicon-star',
+        target: "_blank"
+        },{
+
+        // where to append the notification
+        element: 'body',
+
+        // static | fixed | relative | absolute
+        position: 'absolute',
+
+        // notification type
+        type: "info",
+
+        // is dismissable?
+        allow_dismiss: true,
+
+        // allows duplicate notifications
+        allow_duplicates: true,
+
+        // put the newest notification on the top
+        newest_on_top: false,
+
+        // shows a progress bar
+        showProgressbar: false,
+
+        // placement options
+        placement: {
+            from: "top",
+            align: "right"
+        },
+
+        // offset in pixels
+        offset: 20,
+
+        // space between notifications
+        spacing: 10,
+
+        // z-index property
+        z_index: 1031,
+
+        // delay in milliseconds
+        delay: 5000,
+
+        // timer in millisconeds
+        timer: 1000,
+
+        // URL target property
+        url_target: '_blank',
+
+        // pause the timer on hover
+        mouse_over: null,
+
+        // animation options
+        animate: {
+            enter: 'animated fadeInDown',
+            exit: 'animated fadeOutUp'
+        },
+
+        // or 'image'
+        icon_type: 'class',
+
+        // custom template
+        template: '<div data-notify="container" class="col-xs-11 col-sm-4 alert alert-{0}" style="background-color: white" role="alert"><button type="button" aria-hidden="true" class="close" data-notify="dismiss">&times;</button><span data-notify="icon"></span> <span data-notify="title">{1}</span> <span data-notify="message">{2}</span><div class="progress" data-notify="progressbar"><div class="progress-bar progress-bar-{0}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div></div><a href="{3}" target="{4}" data-notify="url"></a></div>'
+        
+		});
+	}
+
+    </script>
+
 	
 <!--===============================================================================================-->
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
@@ -101,6 +179,7 @@
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
+	<script src="js/bootstrap-notify.js"></script>
 
 </body>
 </html>

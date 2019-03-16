@@ -9,7 +9,7 @@ function loginUser(){
 
     $password = md5($password);
 
-    $sql = "select * from `user_details` where (email='".$username."' OR username='".$username."') AND password='".$password."'";
+    $sql = "select * from `user_details` where (email='".$user."' OR username='".$user."') AND password='".$password."'";
 
     $row = getUser($sql);
 

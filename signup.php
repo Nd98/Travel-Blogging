@@ -80,7 +80,7 @@
 				<div class="text-center p-b-20">
 					<span class="txt1">
 						Already registered?
-						<a href="login.html" class="txt2 hov1">
+						<a href="login.php" class="txt2 hov1">
 						&nbsp;Sign In
 					</a>
 					</span>

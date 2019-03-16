@@ -3,10 +3,10 @@
     if(isset($_POST)){
         if(!registerUser()){
             $_GET['error'] = "Some error occured";
-            header('Location: ../register.php');
+            header('Location: ../signup.php');
         }
         else{
-            header('Location:../index.php');
+            header('Location: ../index.php');
         }
     }
 

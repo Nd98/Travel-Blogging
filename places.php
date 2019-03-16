@@ -37,30 +37,30 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="index.php">Home</a>
         </li>
         <li class="nav-item active">
           <a class="nav-link" href="#">Places <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="photos.html">Photos</a>
+          <a class="nav-link" href="photos.php">Photos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="videos.html">Videos</a>
+          <a class="nav-link" href="videos.php">Videos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="about.html">About</a>
+          <a class="nav-link" href="about.php">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="contact.html">Contact</a>
+          <a class="nav-link" href="contact.php">Contact</a>
         </li>
       </ul>
       <ul class="navbar-nav nav-flex-icons">
         <li class="nav-item">
-          <button onclick="location.href = 'login.html';" class="btn btn-rounded btn-sm aqua-gradient">Login</button>
+          <button onclick="location.href = 'login.php';" class="btn btn-rounded btn-sm aqua-gradient">Login</button>
         </li>
         <li class="nav-item">
-          <button onclick="location.href = 'signup.html';" class="btn btn-rounded btn-sm aqua-gradient">Signup</button>
+          <button onclick="location.href = 'signup.php';" class="btn btn-rounded btn-sm aqua-gradient">Signup</button>
         </li>
         <li class="nav-item">
           <a class="nav-link"><i class="fab fa-facebook-f"></i></a>
