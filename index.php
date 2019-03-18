@@ -1,4 +1,4 @@
-<?php require('controllers/blogController.php'); exit();?>
+<?php require('controllers/blogController.php'); ?>
 
 
 <!DOCTYPE html>
@@ -225,6 +225,45 @@
      
 
  
+    <?php 
+      $row = getAllBlogs();
+      echo '
+          <div class="row">
+
+          <!-- Grid column -->
+          <div class="col-lg-5 col-xl-5">
+
+            <!-- Featured image -->
+            <div class="view overlay rounded z-depth-1-half mb-lg-0 mb-4">
+              <img class="img-fluid" src="'.$row['header_image'].'" alt="Sample image">
+              <a>
+                <div class="mask rgba-white-slight"></div>
+              </a>
+            </div>
+
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-lg-7 col-xl-7">
+
+            <!-- Post title -->
+            <h3 class="font-weight-bold mt-5 mb-3"><strong>'.$row['title'].'</strong></h3>
+            <!-- Excerpt -->
+            <p class="dark-grey-text">'.$row['excerpt'].'</p>
+            <!-- Post data -->
+            <p>by <a class="font-weight-bold">'.$row['username'].'</a>, '.$row['creation_date'].'</p>
+            <!-- Read more button -->
+            <a class="btn btn-primary btn-md">Read more</a>
+
+          </div>
+          <!-- Grid column -->
+
+        </div>
+    
+        <hr class="my-5">
+      ';
+    ?>
       <div class="row">
 
         <!-- Grid column -->
