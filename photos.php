@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -17,7 +18,7 @@
   <link href="vendor/animate/animate.css">
   <link href="vendor/animsition/css/animsition.min.css">
   <link href="vendor/animsition/js/animsition.min.js">
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -80,114 +81,621 @@
   <div class="row">
     <div class="col-lg-12 col-xl-12">
       <h1 class="font-weight-bold my-5 ml-4">Photos</h1>
-    <!-- Section description -->
+      
+      <div id="prev" style="margin-bottom:20px;">
+      <button  class="btn btn-primary btn-md waves-effect waves-light" onclick="location.href='/Travel-Blogging/photos.php'">&laquo; Previous</a>
+      </div>
+      <script>
+        $("#prev").hide();
+
+                $(document).ready(function(){
+                  $(".btn1").click(function(){
+                   $("#prev").show();
+                    });
+                    $(".btn2").click(function(){
+                   $("#prev").show();
+                    });
+                    $(".btn3").click(function(){
+                   $("#prev").show();
+                    });
+                    $(".btn4").click(function(){
+                   $("#prev").show();
+                    });
+                    $(".btn5").click(function(){
+                   $("#prev").show();
+                    });
+                    $(".btn6").click(function(){
+                   $("#prev").show();
+                    });
+                });                
+                
+                 </script>
+
+
+    
     <!--<p class="text-center dark-grey-text w-responsive mx-auto mb-5">Duis aute irure dolor in reprehenderit in
       voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
       proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>-->
   
-  
-       <div class="row">
+                  
+       <div class="row " id="all">
   
           <!-- Grid column -->
-          <div class="col-sm-12 col-lg-4 col-xl-4 mb-4">
+          <div class="col-sm-12 col-lg-4 col-xl-4 mb-4 " id="asia">
   
-              <div class="view  zoom rounded z-depth-1-half mb-lg-0 mb-4">
-              <img class="img-fluid" src="img/60.jpg" alt="Sample image">
-              <a href="#">
+              <div class="view  zoom rounded z-depth-1-half mb-lg-0 mb-4" >
+              <img class="img-fluid" src="img/60.jpg" alt="Sample image"  >
+              <button class="btn1"  >
                 <div class="mask rgba-white-slight">
                   <p class="fnt-img flex-center">ASIA</p>
                 </div>
-              </a>
+                </button>
+              
+              </div>
+             <script>
+              
+                $(document).ready(function(){
+                  $(".btn1").click(function(){
+                    $("#asia").hide();
+                    $("#europe").hide();
+                    $("#australia").hide();
+                    $("#africa").hide();
+                    $("#east").hide();
+                    $("#canada").hide();
+                    $("#asia-1").show();
+                    $("#asia-2").show();
+                    $("#asia-3").show(); 
+                    $("#asia-4").show(); 
+                    $("#asia-5").show(); 
+                    $("#asia-6").show(); 
+                    $("#asia-7").show(); 
+
+                  });
+                  });
+            </script>
+            </div>
+            <!-- Asia photos picture 1 -->
+    
+    <div class="col-sm-12 col-lg-4 col-xl-4 mb-4" id="asia-1">
+  
+  <div class="view  zoom rounded z-depth-1-half mb-lg-0 mb-4" >
+  <img class="img-fluid" src="img/places/asia-img/asia-1.webp" alt="Sample image"  >
+  <button id="btn-asia-1"  >
+    <div class="mask rgba-white-slight">
+      <p class="fnt-img flex-center">TAJ MAHAL</p>
+    </div>
+    </button>
+  </a>
+</div>
+<script>
+          $("#asia-1").hide();
+
+ </script>
+</div>
+          <!-- Asia photos picture 2 -->
+          <div class="col-sm-12 col-lg-4 col-xl-4 mb-4" id="asia-2">
+            
+            <div class="view  zoom rounded z-depth-1-half mb-lg-0 mb-4" >
+            <img class="img-fluid" src="img/places/asia-img/asia-2.jpg" alt="Sample image"  >
+            <button id="btn-asia-2" >
+              <div class="mask rgba-white-slight">
+                <p class="fnt-img flex-center">THE FORBIDDEN CITY</p>
+              </div>
+              </button>
+            </a>
+          </div>
+          <script>
+                    $("#asia-2").hide();
+
+          </script>
+          </div>
+          <!-- Asia photos picture 3 -->
+          <div class="col-sm-12 col-lg-4 col-xl-4 mb-4" id="asia-3">
+  
+            <div class="view  zoom rounded z-depth-1-half mb-lg-0 mb-4" >
+            <img class="img-fluid" src="img/places/asia-img/asia-3.jpg" alt="Sample image"  >
+            <button id="btn-asia-3" >
+              <div class="mask rgba-white-slight">
+                <p class="fnt-img flex-center">RED FORT</p>
+              </div>
+              </button>
+            
+          </div>
+          <script>
+                    $("#asia-3").hide();
+
+          </script>
+          </div>
+  <!-- Asia photos picture 4 -->
+         <div class="col-sm-12 col-lg-4 col-xl-4 mb-4" id="asia-4">
+  
+              <div class="view  zoom rounded z-depth-1-half mb-lg-0 mb-4">
+              <img class="img-fluid" src="img/places/asia-img/asia-4.jpg" alt="Sample image">
+              <button id="btn-asia-4" >
+              <div class="mask rgba-white-slight">
+                <p class="fnt-img flex-center">CHENNAI</p>
+              </div>
+              </button>
             </div>
   
+            <script>
+                    $("#asia-4").hide();
+
+          </script>
+          </div>
+          <!-- Asia photos picture 5 -->
+          <div class="col-sm-12 col-lg-4 col-xl-4 mb-4" id="asia-5">
+  
+              <div class="view  zoom rounded z-depth-1-half mb-lg-0 mb-4">
+              <img class="img-fluid" src="img/places/asia-img/asia-5.jpg" alt="Sample image">
+              <button id="btn-asia-5" >
+              <div class="mask rgba-white-slight">
+                <p class="fnt-img flex-center">GOLDEN TEMPLE</p>
+              </div>
+              </button>
+            </div>
+            <script>
+                    $("#asia-5").hide();
+
+          </script>
   
           </div>
+           <!-- Asia photos picture 6 -->
+           <div class="col-sm-12 col-lg-4 col-xl-4 mb-4" id="asia-6">
   
-          <div class="col-sm-12 col-lg-4 col-xl-4 mb-4">
-  
-            <!-- Featured image -->
-           
               <div class="view  zoom rounded z-depth-1-half mb-lg-0 mb-4">
+              <img class="img-fluid" src="img/places/asia-img/asia-6.jpg" alt="Sample image">
+              <button id="btn-asia-6" >
+              <div class="mask rgba-white-slight">
+                <p class="fnt-img flex-center">HAWA MAHAL</p>
+              </div>
+              </button>
+            </div>
+            <script>
+                    $("#asia-6").hide();
+
+            </script>
+
+            </div>
+
+             <!-- Asia photos picture 7 -->
+             <div class="col-sm-12 col-lg-4 col-xl-4 mb-4" id="asia-7">
+  
+              <div class="view  zoom rounded z-depth-1-half mb-lg-0 mb-4">
+              <img class="img-fluid" src="img/places/asia-img/asia-7.jpg" alt="Sample image">
+              <button id="btn-asia-7" >
+              <div class="mask rgba-white-slight">
+                <p class="fnt-img flex-center">CHITTORGARH FORT</p>
+              </div>
+              </button>
+            </div>
+            <script>
+                    $("#asia-7").hide();
+
+          </script>
+  
+          </div>
+      
+                      <!-- europe image -->
+          <div class="col-sm-12 col-lg-4 col-xl-4 mb-4" id="europe">
+  
+              <div class="view  zoom rounded z-depth-1-half mb-lg-0 mb-4" >
               <img class="img-fluid" src="img/61.jpg" alt="Sample image">
-              <a href="#">
+              <button class="btn2"  >
                 <div class="mask rgba-white-slight">
                   <p class="fnt-img flex-center">EUROPE</p>
                 </div>
-              </a>
+                </button>
             </div>
   
-  
+            <script>
+              
+              $(document).ready(function(){
+                $(".btn2").click(function(){
+                  $("#asia").hide();
+                  $("#europe").hide();
+                  $("#australia").hide();
+                  $("#africa").hide();
+                  $("#east").hide();
+                  $("#canada").hide();
+                  $("#europe-1").show();
+                  $("#europe-2").show();
+                  $("#europe-3").show(); 
+                 
+                  });
+                });
+          </script>
           </div>
-         
-          <!-- Grid column -->
-          <div class="col-sm-12 col-lg-4 col-xl-4 mb-4">
+                <!--europe image 1-->
+                <div class="col-sm-12 col-lg-4 col-xl-4 mb-4" id="europe-1">
   
-            <!-- Featured image -->
-            
+                <div class="view  zoom rounded z-depth-1-half mb-lg-0 mb-4" >
+                <img class="img-fluid" src="img/places/europe/europe-1.jpg" alt="Sample image"  >
+                <button id="btn-europe-1"  >
+                  <div class="mask rgba-white-slight">
+                    <p class="fnt-img flex-center">THE COLOSSEUM </p>
+                  </div>
+                  </button>
+                </a>
+              </div>
+              <script>
+                        $("#europe-1").hide();
+
+              </script>
+              </div> 
+              <!--europe image 2-->
+              <div class="col-sm-12 col-lg-4 col-xl-4 mb-4" id="europe-2">
+                
+                <div class="view  zoom rounded z-depth-1-half mb-lg-0 mb-4" >
+                <img class="img-fluid" src="img/places/europe/europe-2.jpg" alt="Sample image"  >
+                <button id="btn-europe-2"  >
+                  <div class="mask rgba-white-slight">
+                    <p class="fnt-img flex-center">EIFFEL TOWER</p>
+                  </div>
+                  </button>
+                </a>
+              </div>
+              <script>
+                        $("#europe-2").hide();
+
+              </script>
+              </div> 
+
+                     <!--europe image 3-->
+              <div class="col-sm-12 col-lg-4 col-xl-4 mb-4" id="europe-3">
+                
+                <div class="view  zoom rounded z-depth-1-half mb-lg-0 mb-4" >
+                <img class="img-fluid" src="img/places/europe/europe-3.jpg" alt="Sample image"  >
+                <button id="btn-europe-3"  >
+                  <div class="mask rgba-white-slight">
+                    <p class="fnt-img flex-center">LEANING TOWER</p>
+                  </div>
+                  </button>
+                </a>
+              </div>
+              <script>
+                        $("#europe-3").hide();
+
+              </script>
+              </div>           
+       
+          <!--Australia Images -->
+          <div class="col-sm-12 col-lg-4 col-xl-4 mb-4" id="australia">
+  
               <div class="view  zoom rounded z-depth-1-half mb-lg-0 mb-4">
               <img class="img-fluid" src="img/62.jpg" alt="Sample image">
-              <a href="#">
+              <button class="btn3" >
                 <div class="mask rgba-white-slight">
                   <p class="fnt-img flex-center">AUSTRALIA</p>
                 </div>
-              </a>
+                </button>
             </div>
+            <script>
+              
+              $(document).ready(function(){
+                $(".btn3").click(function(){
+                  $("#asia").hide();
+                  $("#europe").hide();
+                  $("#australia").hide();
+                  $("#africa").hide();
+                  $("#east").hide();
+                  $("#canada").hide();
+                  $("#australia-1").show();
+                  $("#australia-2").show();
+                  $("#australia-3").show(); 
+                 
+                  });
+                });
+          </script>
+        </div>
+        <!-- Australia  image 1 -->
+        <div class="col-sm-12 col-lg-4 col-xl-4 mb-4" id="australia-1">
+                
+                <div class="view  zoom rounded z-depth-1-half mb-lg-0 mb-4" >
+                <img class="img-fluid" src="img/places/australia/australia-1.jpg" alt="Sample image"  >
+                <button id="btn-australia-1"  >
+                  <div class="mask rgba-white-slight">
+                    <p class="fnt-img flex-center">SYDNEY OPERA HOUSE</p>
+                  </div>
+                  </button>
+                </a>
+              </div>
+              <script>
+                        $("#australia-1").hide();
+
+              </script>
+              </div>           
+                <!-- Australia  image 2 -->
+        <div class="col-sm-12 col-lg-4 col-xl-4 mb-4" id="australia-2">
+                
+                <div class="view  zoom rounded z-depth-1-half mb-lg-0 mb-4" >
+                <img class="img-fluid" src="img/places/australia/australia-2.jpg" alt="Sample image"  >
+                <button id="btn-australia-2"  >
+                  <div class="mask rgba-white-slight">
+                    <p class="fnt-img flex-center"> ULURU-KATA TJUTA NATIONAL PARK</p>
+                  </div>
+                  </button>
+                </a>
+              </div>
+              <script>
+                        $("#australia-2").hide();
+
+              </script>
+              </div>           
+                  <!-- Australia  image 3 -->
+        <div class="col-sm-12 col-lg-4 col-xl-4 mb-4" id="australia-3">
+                
+                <div class="view  zoom rounded z-depth-1-half mb-lg-0 mb-4" >
+                <img class="img-fluid" src="img/places/australia/australia-3.jpg" alt="Sample image"  >
+                <button id="btn-australia-3"  >
+                  <div class="mask rgba-white-slight">
+                    <p class="fnt-img flex-center"> BONDI BEACH</p>
+                  </div>
+                  </button>
+                </a>
+              </div>
+              <script>
+                        $("#australia-3").hide();
+
+              </script>
+              </div>           
+
         </div>
        
-      </div>
-      <hr class="my-5">
-  
        <div class="row">
-  
-          <!-- Grid column -->
-          <div class="col-sm-12 col-lg-4 col-xl-4 mb-4">
+   
+          <!--Africa Images -->
+          <div class="col-sm-12 col-lg-4 col-xl-4 mb-4" id="africa">
   
               <div class="view  zoom rounded z-depth-1-half mb-lg-0 mb-4">
               <img class="img-fluid" src="img/63.jpg" alt="Sample image">
-              <a href="#">
+              <button class="btn4"  >
                 <div class="mask rgba-white-slight">
                   <p class="fnt-img flex-center">AFRICA</p>
                 </div>
-              </a>
+                </button>
             </div>
-  
+            <script>
+              
+              $(document).ready(function(){
+                $(".btn4").click(function(){
+                
+                  $("#asia").hide();
+                  $("#europe").hide();
+                  $("#australia").hide();
+                  $("#africa").hide();
+                  $("#east").hide();
+                  $("#canada").hide();
+                  $("#africa-1").show();
+                  $("#africa-2").show();
+                  $("#africa-3").show(); 
+                 
+                  });
+                });
+          </script>
   
           </div>
-  
-          <div class="col-sm-12 col-lg-4 col-xl-4 mb-4">
-  
-            <!-- Featured image -->
-           
-              <div class="view  zoom rounded z-depth-1-half mb-lg-0 mb-4">
+
+                <!-- africa  image 1-->
+        <div class="col-sm-12 col-lg-4 col-xl-4 mb-4" id="africa-1">
+                
+                <div class="view  zoom rounded z-depth-1-half mb-lg-0 mb-4" >
+                <img class="img-fluid" src="img/places/africa/africa-1.jpg" alt="Sample image"  >
+                <button id="btn-africa-1"  >
+                  <div class="mask rgba-white-slight">
+                    <p class="fnt-img flex-center"> MALWAI</p>
+                  </div>
+                  </button>
+                </a>
+              </div>
+              <script>
+                        $("#africa-1").hide();
+
+              </script>
+              </div>      
+        
+                <!-- africa  image 2-->
+                <div class="col-sm-12 col-lg-4 col-xl-4 mb-4" id="africa-2">
+                
+                <div class="view  zoom rounded z-depth-1-half mb-lg-0 mb-4" >
+                <img class="img-fluid" src="img/places/africa/africa-2.jpg" alt="Sample image"  >
+                <button id="btn-africa-2"  >
+                  <div class="mask rgba-white-slight">
+                    <p class="fnt-img flex-center"> MOROCCO</p>
+                  </div>
+                  </button>
+                </a>
+              </div>
+              <script>
+                        $("#africa-2").hide();
+
+              </script>
+              </div>  
+            <!-- africa  image 2-->
+            <div class="col-sm-12 col-lg-4 col-xl-4 mb-4" id="africa-3">
+                
+                <div class="view  zoom rounded z-depth-1-half mb-lg-0 mb-4" >
+                <img class="img-fluid" src="img/places/africa/africa-3.jpg" alt="Sample image"  >
+                <button id="btn-africa-3"  >
+                  <div class="mask rgba-white-slight">
+                    <p class="fnt-img flex-center"> EGYPT</p>
+                  </div>
+                  </button>
+                </a>
+              </div>
+              <script>
+                        $("#africa-3").hide();
+
+              </script>
+              </div>  
+
+          <!-- MIDDLE EAST image -->
+          <div class="col-sm-12 col-lg-4 col-xl-4 mb-4" id="east">
+           <div class="view  zoom rounded z-depth-1-half mb-lg-0 mb-4">
               <img class="img-fluid" src="img/64.jpg" alt="Sample image">
-              <a href="#">
+              <button class="btn5"  >
                 <div class="mask rgba-white-slight">
                   <p class="fnt-img flex-center">MIDDLE EAST</p>
                 </div>
-              </a>
+                </button>
+                <script>
+              
+              $(document).ready(function(){
+                $(".btn5").click(function(){
+                  $("#asia").hide();
+                  $("#europe").hide();
+                  $("#australia").hide();
+                  $("#africa").hide();
+                  $("#east").hide();
+                  $("#canada").hide();
+                  $("#east-1").show();
+                  $("#east-2").show();
+                  $("#east-3").show(); 
+                 
+                  });
+                });
+          </script>
+           </div>
             </div>
-  
-  
-          </div>
+            <!-- east  image 1-->
+            <div class="col-sm-12 col-lg-4 col-xl-4 mb-4" id="east-1">
+                
+                <div class="view  zoom rounded z-depth-1-half mb-lg-0 mb-4" >
+                <img class="img-fluid" src="img/places/east/east-1.jpg" alt="Sample image"  >
+                <button id="btn-east-1"  >
+                  <div class="mask rgba-white-slight">
+                    <p class="fnt-img flex-center"> DUBAI</p>
+                  </div>
+                  </button>
+                </a>
+              </div>
+              <script>
+                        $("#east-1").hide();
+
+              </script>
+              </div>  
+          
+            <!-- east  image 2-->
+            <div class="col-sm-12 col-lg-4 col-xl-4 mb-4" id="east-2">
+                
+                <div class="view  zoom rounded z-depth-1-half mb-lg-0 mb-4" >
+                <img class="img-fluid" src="img/places/east/east-2.jpg" alt="Sample image"  >
+                <button id="btn-east-2"  >
+                  <div class="mask rgba-white-slight">
+                    <p class="fnt-img flex-center"> BEIRUT</p>
+                  </div>
+                  </button>
+                </a>
+              </div>
+              <script>
+                        $("#east-2").hide();
+
+              </script>
+              </div>  
+               <!-- east  image 3-->
+            <div class="col-sm-12 col-lg-4 col-xl-4 mb-4" id="east-3">
+                
+                <div class="view  zoom rounded z-depth-1-half mb-lg-0 mb-4" >
+                <img class="img-fluid" src="img/places/east/east-3.jpg" alt="Sample image"  >
+                <button id="btn-east-3"  >
+                  <div class="mask rgba-white-slight">
+                    <p class="fnt-img flex-center"> BAALBEK MARKER</p>
+                  </div>
+                  </button>
+                </a>
+              </div>
+              <script>
+                        $("#east-3").hide();
+
+              </script>
+              </div>  
          
-          <!-- Grid column -->
-          <div class="col-sm-12 col-lg-4 col-xl-4 mb-4">
-  
-            <!-- Featured image -->
-            
+          <!--Canada images -->
+          <div class="col-sm-12 col-lg-4 col-xl-4 mb-4" id="canada">
               <div class="view  zoom rounded z-depth-1-half mb-lg-0 mb-4">
               <img class="img-fluid" src="img/65.jpg" alt="Sample image">
-              <a href="#">
+              <button class="btn6"  >
                 <div class="mask rgba-white-slight">
                   <p class="fnt-img flex-center">CANADA</p>
                 </div>
-              </a>
+                </button>
             </div>
+            <script>
+              
+              $(document).ready(function(){
+                $(".btn6").click(function(){
+                  $("#asia").hide();
+                  $("#europe").hide();
+                  $("#australia").hide();
+                  $("#africa").hide();
+                  $("#east").hide();
+                  $("#canada").hide();
+                  $("#canada-1").show();
+                  $("#canada-2").show();
+                  $("#canada-3").show(); 
+                 
+                  });
+                });
+          </script>
+        </div>
+
+                 <!-- canada  image 1-->
+            <div class="col-sm-12 col-lg-4 col-xl-4 mb-4" id="canada-1">
+                
+                <div class="view  zoom rounded z-depth-1-half mb-lg-0 mb-4" >
+                <img class="img-fluid" src="img/places/canada/canada-1.jpg" alt="Sample image"  >
+                <button id="btn-canada-1"  >
+                  <div class="mask rgba-white-slight">
+                    <p class="fnt-img flex-center">OTTAWA </p>
+                  </div>
+                  </button>
+                </a>
+              </div>
+              <script>
+                        $("#canada-1").hide();
+
+              </script>
+              </div>  
+
+                <!-- canada  image 2-->
+            <div class="col-sm-12 col-lg-4 col-xl-4 mb-4" id="canada-2">
+                
+                <div class="view  zoom rounded z-depth-1-half mb-lg-0 mb-4" >
+                <img class="img-fluid" src="img/places/canada/canada-2.jpg" alt="Sample image"  >
+                <button id="btn-canada-2"  >
+                  <div class="mask rgba-white-slight">
+                    <p class="fnt-img flex-center">WHISTLER </p>
+                  </div>
+                  </button>
+                </a>
+              </div>
+              <script>
+                        $("#canada-2").hide();
+
+              </script>
+                 </div>  
+                  <!-- canada  image 3-->
+                  <div class="col-sm-12 col-lg-4 col-xl-4 mb-4" id="canada-3">
+                                  
+                    <div class="view  zoom rounded z-depth-1-half mb-lg-0 mb-4" >
+                <img class="img-fluid" src="img/places/canada/canada-3.jpg" alt="Sample image"  >
+                <button id="btn-canada-3"  >
+                  <div class="mask rgba-white-slight">
+                    <p class="fnt-img flex-center"> QUEBEC CITY </p>
+                  </div>
+                  </button>
+                </a>
+              </div>
+              <script>
+                        $("#canada-3").hide();
+
+              </script>
+              </div>  
+
         </div>
       </div>
-  
       <hr class="my-5">
-  
+                <!--side panel-->
       <div class="col-lg-12 col-xl-12">
           <h1 class="mt-xl-5">&nbsp;</h1>
           <div class="row">
@@ -259,7 +767,7 @@
         </div>
       </div>
   </div>
-    <!-- Grid row -->
+    
   </section>
 
 <!--Footer-->
