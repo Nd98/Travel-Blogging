@@ -175,9 +175,10 @@
 	if(isset($_SESSION['error']))
 	{
 		echo '<script>setNotify("'.$_SESSION['error'].'");</script>';
+		session_unset();
 	}
 
-	session_unset();
+	
 ?>
 
 	

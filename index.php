@@ -1,4 +1,4 @@
-<?php require('controllers/blogController.php'); ?>
+<?php session_start(); require('controllers/blogController.php'); ?>
 
 
 <!DOCTYPE html>
