@@ -212,7 +212,7 @@ p#abt-head{
     transition: all 0.3s ease-in-out;
 }
 /*previous button css*/
-a {
+/* a {
   text-decoration: none;
   display: inline-block;
   padding: 8px 16px;
@@ -226,4 +226,4 @@ a:hover {
 .previous {
   background-color: #f1f1f1;
   color: black;
-}
+} */

@@ -1,11 +1,6 @@
-<!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js" lang="en">
-<!--<![endif]-->
+<!DOCTYPE html>
 
+<html class="no-js" lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -32,7 +27,6 @@
 
 <body>
 
-
     <!-- Left Panel -->
 
     <aside id="left-panel" class="left-panel">
@@ -43,7 +37,6 @@
                     <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand" href="#"><i class="far fa-hand-paper"></i> Hello User !</a>
-                
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
@@ -56,21 +49,17 @@
 
                     <li>
                         <a href="create blog.html"><i class=" menu-icon  fas fa-plus "></i> Create Blog</a>
-                        
                     </li>
                     <li>
                         <a href="#"> <i class="menu-icon fas fa-blog "></i>Posts </a>
                     </li>
                     <li >
                         <a href="#" > <i class="menu-icon fas fa-images"></i>Manage Photo's</a>
-                        
                     </li>
 
                     <li >
                         <a href="#" > <i class="menu-icon fas fa-video"></i>Manage Videos</a>
-                        
                     </li>
-                    
                 </ul>
             </div><!-- /.navbar-collapse -->
         </nav>
@@ -83,62 +72,31 @@
     <div id="right-panel" class="right-panel">
 
         <!-- Header-->
+
         <header id="header" class="header">
 
             <div class="header-menu">
-                    <div class="col-sm-9">
-                      
-                     <h3>Travel Blog</h3>       
-        
-                    </div>
-
-                
+                <div class="col-sm-9">
+                    <h3>Travel Blog</h3>       
+                </div>
 
                 <div class="col-sm-3">
-                        <div class="header-left" >
-                                <!-- <div class="dropdown for-notification">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" id="notification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fa fa-bell"></i>
-                                    <span class="count bg-danger">3</span>
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="notification">
-                                   
-                                    <a class="dropdown-item media bg-flat-color-3" href="#">
-                                    <i class="fa fa-check"></i>
-                                    <p>Notification 1</p>
-                                </a>
-                                    <a class="dropdown-item media bg-flat-color-3" href="#">
-                                    <i class="fa fa-info"></i>
-                                    <p>Notification 2</p>
-                                </a>
-                                    <a class="dropdown-item media bg-flat-color-3" href="#">
-                                    <i class="fa fa-info"></i>
-                                    <p>Notification 3</p>
-                                </a>
-                                </div>
-                            </div> -->
-    
-                        
-                    <div class="user-area dropdown float-right">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <!--<img class="user-avatar rounded-circle" src="images/admin.jpg" alt="User Avatar">-->
-                            <span>Hi! Username  <i class="fas fa-chevron-circle-down"></i></span>
-
-                        </a>
-
-                        <div class="user-menu dropdown-menu">
-                            <a class="nav-link" href="#"><i class="fas fa-user-circle"></i> My Profile</a>
-
-                            <!-- <a class="nav-link" href="#"><i class="fas fa-bell"></i> Notifications <span class="count">3</span></a> -->
-                           
-                            <a class="nav-link" href="#"><i class="fa fa-power-off"></i> Logout</a>
+                    <div class="header-left" >
+                        <div class="user-area dropdown float-right">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span>Hi! Username  <i class="fas fa-chevron-circle-down"></i></span>
+                            </a>
+                            <div class="user-menu dropdown-menu">
+                                <a class="nav-link" href="#"><i class="fas fa-user-circle"></i> My Profile</a>
+                                <a class="nav-link" href="#"><i class="fa fa-power-off"></i> Logout</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                    </div>
             </div>
 
-        </header><!-- /header -->
+        </header>
+        
         <!-- Header-->
 
         <div class="breadcrumbs">
@@ -162,6 +120,7 @@
                     </button>
                 </div>
             </div>
+
             <div class="col-xl-3 col-lg-4">
                 <div class="card">
                     <div class="card-body">
@@ -216,14 +175,12 @@
     <script src="vendors/popper.js/dist/umd/popper.min.js"></script>
     <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="assets/js/main.js"></script>
-
-
     <script src="vendors/chart.js/dist/Chart.bundle.min.js"></script>
     <script src="assets/js/dashboard.js"></script>
     <script src="assets/js/widgets.js"></script>
-    <script src="vendors/jqvmap/dist/jquery.vmap.min.js"></script>
+    <!-- <script src="vendors/jqvmap/dist/jquery.vmap.min.js"></script>
     <script src="vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
-    <script src="vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script src="vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script> -->
     <script>
         (function($) {
             "use strict";
