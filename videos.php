@@ -39,11 +39,11 @@
       <li class="nav-item">
         <a class="nav-link" href="places.php">Places</a>
       </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="photos.php">Photos <span class="sr-only">(current)</span></a>
-      </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Videos</a>
+        <a class="nav-link" href="photos.php">Photos</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Videos <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="about.php">About</a>

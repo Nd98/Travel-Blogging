@@ -282,43 +282,7 @@
         
       
     ?>
-      <div class="row">
-
-        <!-- Grid column -->
-        <div class="col-lg-5 col-xl-5">
-
-          <!-- Featured image -->
-          <div class="view overlay rounded z-depth-1-half mb-lg-0 mb-4">
-            <img class="img-fluid" src="img/31.jpg" alt="Sample image">
-            <a>
-              <div class="mask rgba-white-slight"></div>
-            </a>
-          </div>
-
-        </div>
-        <!-- Grid column -->
-
-        <!-- Grid column -->
-        <div class="col-lg-7 col-xl-7">
-
-          <!-- Post title -->
-          <h3 class="font-weight-bold mt-5 mb-3"><strong>Title of the posts</strong></h3>
-          <!-- Excerpt -->
-          <p class="dark-grey-text">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
-            praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati
-            cupiditate non provident et accusamus iusto odio dignissimos et dolorum fuga.</p>
-          <!-- Post data -->
-          <p>by <a class="font-weight-bold">Jessica Clark</a>, 16/04/2018</p>
-          <!-- Read more button -->
-          <a class="btn btn-primary btn-md">Read more</a>
-
-        </div>
-        <!-- Grid column -->
-
-      </div>
    
-      <hr class="my-5">
-
     </div>
 
     <div class="col-lg-12 col-xl-3">
