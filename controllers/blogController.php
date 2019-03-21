@@ -10,8 +10,6 @@
 
         if(mysqli_num_rows($result) > 0){
             return $result;
-            // $row = mysqli_fetch_assoc($result);
-            // return $row;
         }
 
         return 0;
@@ -25,12 +23,49 @@
 
         if(mysqli_num_rows($result) > 0){
             return $result;
-            // $row = mysqli_fetch_assoc($result);
-            // return $row;
         }
 
         return 0;
     }
+
+    function getPopularPosts(){
+        $sql = "select * from blog_posts LIMIT 3";
+
+        $result = getData($sql);
+
+        if(mysqli_num_rows($result) > 0){
+            return $result;
+        }
+
+        return 0;
+    }
+
+    function getPopularAuthors(){
+        $sql = "SELECT count('id'),'username' FROM `blog_posts` ORDER BY 'id' DESC LIMIT 3 ";
+
+        $result = getData($sql);
+
+        if(mysqli_num_rows($result) > 0){
+            return $result;
+        }
+
+        return 0;
+    }
+
+    function getPopularCategories(){
+
+        // query pending;
+        $sql = "SELECT count('id'),'username' FROM `blog_posts` ORDER BY 'id' DESC LIMIT 3 ";
+
+        $result = getData($sql);
+
+        if(mysqli_num_rows($result) > 0){
+            return $result;
+        }
+
+        return 0;
+    }
+
 
     function deleteBlog($id){
         $sql = "Delete from blog_posts where id = '.$id.'";

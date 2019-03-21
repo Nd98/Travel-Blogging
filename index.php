@@ -1,4 +1,7 @@
-<?php session_start(); require('controllers/blogController.php'); ?>
+<?php 
+  session_start();
+  require('controllers/blogController.php'); 
+  ?>
 
 
 <!DOCTYPE html>
@@ -26,7 +29,7 @@
 <body>
 
 <!-- Navbar -->
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+ <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
   <a class="navbar-brand" href="#"><strong>Travel Blog</strong></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -73,139 +76,11 @@
     </ul>
   </div>
 </nav>
+
 <!-- Navbar -->
 
 <!--Carousel Wrapper-->
-<div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel">
-
-  <!--Indicators-->
-  <ol class="carousel-indicators">
-    <li data-target="#carousel-example-1z" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel-example-1z" data-slide-to="1"></li>
-    <li data-target="#carousel-example-1z" data-slide-to="2"></li>
-  </ol>
-  <!--/.Indicators-->
-
-  <!--Slides-->
-  <div class="carousel-inner" role="listbox">
-
-    <!--First slide-->
-    <div class="carousel-item active">
-      <div class="view" style="background-image: url('https://mdbootstrap.com/img/Photos/Others/images/77.jpg'); background-repeat: no-repeat; background-size: cover;">
-
-        <!-- Mask & flexbox options-->
-        <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
-
-          <!-- Content -->
-          <div class="text-center white-text mx-5 wow fadeIn">
-            <h1 class="mb-4">
-              <strong class="carousel-title">Travel Blog</strong>
-            </h1>
-
-            <p>
-              <strong>Best travelling experience shared by awesome travellers around the world.</strong>
-            </p>
-
-            <p class="mb-4 d-none d-md-block">
-              <strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, autem. At, odit minus, laboriosam tempore</strong>
-            </p>
-
-            <a target="_blank" href="https://mdbootstrap.com/education/bootstrap/" class="btn btn-outline-white btn-lg">Read More
-              <i class="fas fa-arrow-alt-circle-right ml-2"></i>
-            </a>
-          </div>
-          <!-- Content -->
-
-        </div>
-        <!-- Mask & flexbox options-->
-
-      </div>
-    </div>
-    <!--/First slide-->
-
-    <!--Second slide-->
-    <div class="carousel-item">
-      <div class="view" style="background-image: url('https://mdbootstrap.com/img/Photos/Others/images/47.jpg'); background-repeat: no-repeat; background-size: cover;">
-
-        <!-- Mask & flexbox options-->
-        <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
-
-          <!-- Content -->
-          <div class="text-center white-text mx-5 wow fadeIn">
-            <h1 class="mb-4">
-              <strong class="carousel-title">Travel Blog</strong>
-            </h1>
-
-            <p>
-              <strong>Best travelling experience shared by awesome travellers around the world.</strong>
-            </p>
-
-            <p class="mb-4 d-none d-md-block">
-              <strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, autem. At, odit minus, laboriosam tempore</strong>
-            </p>
-
-            <a target="_blank" href="https://mdbootstrap.com/education/bootstrap/" class="btn btn-outline-white btn-lg">Read More
-              <i class="fas fa-arrow-alt-circle-right ml-2"></i>
-            </a>
-          </div>
-          <!-- Content -->
-
-        </div>
-        <!-- Mask & flexbox options-->
-
-      </div>
-    </div>
-    <!--/Second slide-->
-
-    <!--Third slide-->
-    <div class="carousel-item">
-      <div class="view" style="background-image: url('https://mdbootstrap.com/img/Photos/Others/images/79.jpg'); background-repeat: no-repeat; background-size: cover;">
-
-        <!-- Mask & flexbox options-->
-        <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
-
-          <!-- Content -->
-          <div class="text-center white-text mx-5 wow fadeIn">
-            <h1 class="mb-4">
-              <strong class="carousel-title">Travel Blog</strong>
-            </h1>
-
-            <p>
-              <strong>Best travelling experience shared by awesome travellers around the world.</strong>
-            </p>
-
-            <p class="mb-4 d-none d-md-block">
-              <strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, autem. At, odit minus, laboriosam tempore</strong>
-            </p>
-
-            <a target="_blank" href="https://mdbootstrap.com/education/bootstrap/" class="btn btn-outline-white btn-lg">Read More
-              <i class="fas fa-arrow-alt-circle-right ml-2"></i>
-            </a>
-          </div>
-          <!-- Content -->
-
-        </div>
-        <!-- Mask & flexbox options-->
-
-      </div>
-    </div>
-    <!--/Third slide-->
-
-  </div>
-  <!--/.Slides-->
-
-  <!--Controls-->
-  <a class="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-  <!--/.Controls-->
-
-</div>
+<?php include_once('includes/carousel.php'); ?>
 <!--/.Carousel Wrapper-->
 
 <!--Main layout-->
@@ -293,7 +168,7 @@
           <h4 class="font-weight-bold mt-5"><i class="far fa-newspaper mr-2"></i>Popular Posts</h4>
           <hr>
           <div class="">
-          <div class="pp mb-2">
+          <!-- <div class="pp mb-2">
             <div class="pp-title">
               <a class="dark-grey-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a>
             </div>
@@ -310,7 +185,8 @@
               <a class="dark-grey-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a>
             </div>
             <div><span class="pp-author"><a>Jesica Clark</a></span><span class="date">19-12-2018</span></div>
-          </div>
+          </div> -->
+          <?php include_once('includes/popular_posts.php'); ?>
           </div>
         </div>
       </div>
@@ -320,7 +196,7 @@
             <h4 class="font-weight-bold mt-5"><i class="fas fa-users mr-2"></i>Popular Authors</h4>
             <hr>
             <div class=""> 
-            <div class="mb-2">
+            <!-- <div class="mb-2">
               <img src="" alt="JC" class="mr-2"/>
               <span class="pp-title dark-grey-text mr-2">Jesica Clark</span><span class="no-of-posts">No. of Posts</span>
             </div>
@@ -331,7 +207,8 @@
             <div class="mb-2">
               <img src="" alt="JC" class="mr-2"/>
               <span class="pp-title dark-grey-text mr-2">Jesica Clark</span><span class="no-of-posts">No. of Posts</span>
-            </div>
+            </div> -->
+            <?php include_once('includes/popular_authors.php'); ?>
             </div>
           </div>
         </div>
@@ -341,7 +218,7 @@
                 <h4 class="font-weight-bold mt-5"><i class="far fa-folder mr-2"></i>Popular Categories</h4>
                 <hr>
                 <div class="">
-                <div class="mb-2">
+                <!-- <div class="mb-2">
                   <span class="pp-title dark-grey-text mr-2">Place 1</span><span class="no-of-posts" style="float:right">No. of Posts</span>
                 </div>
                 <div class="mb-2">
@@ -349,7 +226,8 @@
                 </div>
                 <div class="mb-2">
                   <span class="pp-title dark-grey-text mr-2">Place 3</span><span class="no-of-posts" style="float:right">No. of Posts</span>
-                </div>
+                </div> -->
+                <?php include_once('includes/popular_categories.php'); ?>
                 </div>
               </div>
             </div>

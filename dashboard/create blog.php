@@ -13,8 +13,6 @@
        $data[3] = date("Y-m-d");
        $data[4] = $_POST['excerpt'];
        $data[5] = $_POST['content'];
-    //    var_dump($_FILES['placeImage']['tmp_name']);
-    //    exit();
        $data[6] = "img"."/places"."/".$_POST['place']."/".$_FILES['placeImage']['name'];
        $data[7] = $_POST['tags'];
        $data[8] = $_FILES['placeImage']['tmp_name'];
@@ -221,7 +219,7 @@
         <?php 
             if(isset($_SESSION['created_message'])){
                 echo '<script>setNotify("'.$_SESSION['created_message'].'")</script>';
-                unset($_SESSION['created_message']);
+                //unset($_SESSION['created_message']);
             }
         ?>
 
