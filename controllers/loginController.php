@@ -21,7 +21,7 @@ function loginUser(){
     }
 
     return $isLoggedin;
-    
 }
+
     
 ?>

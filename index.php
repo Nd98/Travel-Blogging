@@ -226,43 +226,61 @@
 
  
     <?php 
-      $row = getAllBlogs();
-      echo '
-          <div class="row">
+      $result = getAllBlogs();
 
-          <!-- Grid column -->
-          <div class="col-lg-5 col-xl-5">
+      if($result){
+        while($row = mysqli_fetch_assoc($result)){
+          echo '
+            <div class="row">
 
-            <!-- Featured image -->
-            <div class="view overlay rounded z-depth-1-half mb-lg-0 mb-4">
-              <img class="img-fluid" src="'.$row['header_image'].'" alt="Sample image">
-              <a>
-                <div class="mask rgba-white-slight"></div>
-              </a>
+            <!-- Grid column -->
+            <div class="col-lg-5 col-xl-5">
+
+              <!-- Featured image -->
+              <div class="view overlay rounded z-depth-1-half mb-lg-0 mb-4">
+                <img class="img-fluid" src="'.$row['header_image'].'" alt="Sample image">
+                <a>
+                  <div class="mask rgba-white-slight"></div>
+                </a>
+              </div>
+
             </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-lg-7 col-xl-7">
+
+              <!-- Post title -->
+              <h3 class="font-weight-bold mt-5 mb-3"><strong>'.$row['title'].'</strong></h3>
+              <!-- Excerpt -->
+              <p class="dark-grey-text">'.$row['excerpt'].'</p>
+              <!-- Post data -->
+              <p>by <a class="font-weight-bold">'.$row['username'].'</a>, '.$row['creation_date'].'</p>
+              <!-- Read more button -->
+              <a class="btn btn-primary btn-md">Read more</a>
+
+            </div>
+            <!-- Grid column -->
 
           </div>
-          <!-- Grid column -->
-
-          <!-- Grid column -->
-          <div class="col-lg-7 col-xl-7">
-
-            <!-- Post title -->
-            <h3 class="font-weight-bold mt-5 mb-3"><strong>'.$row['title'].'</strong></h3>
-            <!-- Excerpt -->
-            <p class="dark-grey-text">'.$row['excerpt'].'</p>
-            <!-- Post data -->
-            <p>by <a class="font-weight-bold">'.$row['username'].'</a>, '.$row['creation_date'].'</p>
-            <!-- Read more button -->
-            <a class="btn btn-primary btn-md">Read more</a>
-
-          </div>
-          <!-- Grid column -->
-
-        </div>
-    
-        <hr class="my-5">
+      
+          <hr class="my-5">
       ';
+      }
+    }
+
+    else{
+      echo '
+        <div class="row">
+          <div class="col-lg-12 col-xl-12">
+            <h3>No Post Found</h3>
+          </div>
+        </div>
+      ';
+    }
+        
+        
+      
     ?>
       <div class="row">
 

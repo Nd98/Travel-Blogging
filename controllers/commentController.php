@@ -1,5 +1,5 @@
 <?php 
-    include('database/connection.php');
+    @include('database/connection.php');
 
     function getComments($post_id){
 
@@ -11,6 +11,21 @@
                 $row = mysqli_fetch_assoc($result);
                 return $row;
             }
+
+        return 0;
+    }
+
+    function getCommentsByUserId($username){
+
+        $sql = 'select * from post_comments where username = "'.$username.'"';
+        
+        $result = getData($sql);
+
+        if(mysqli_num_rows($result) > 0){
+            return $result;
+            // $row = mysqli_fetch_assoc($result);
+            // return $row;
+        }
 
         return 0;
     }

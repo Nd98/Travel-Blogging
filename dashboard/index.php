@@ -1,3 +1,37 @@
+<?php 
+    session_start();
+    require('../controllers/blogController.php');
+    require('../controllers/commentController.php');
+
+    $num_posts = 0;
+    $num_comments = 0;
+
+    if(!isset($_SESSION['username'])){
+        header("Location: ../login.php");
+    }
+
+    $blogResult = getUserBlogs($_SESSION['username']);
+
+    if($blogResult){
+        global $num_posts;
+        $num_posts = mysqli_num_rows($blogResult);
+
+        $_SESSION['result'] = $blogResult;
+    }
+
+    $commentResult = getCommentsByUserId($_SESSION['username']);
+
+    if($commentResult){
+        global $num_posts;
+        $num_comments = mysqli_num_rows($commentResult);
+
+        $_SESSION['result'] = $commentResult;
+    }
+
+
+?>
+
+
 <!DOCTYPE html>
 
 <html class="no-js" lang="en">
@@ -31,24 +65,20 @@
 
     <aside id="left-panel" class="left-panel">
         <nav class="navbar navbar-expand-sm navbar-default">
-
             <div class="navbar-header">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="#"><i class="far fa-hand-paper"></i> Hello User !</a>
+                <a class="navbar-brand" href="#"><i class="far fa-hand-paper mr-2"></i> Welcome</a>
             </div>
-
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="http://localhost:8500/Travel-Blogging/"> <i class="menu-icon fas fa-home"></i>Home </a>
+                        <a href="index.php"> <i class="menu-icon fas fa-home"></i>Home </a>
                     </li>
-                  
                     <h3 class="menu-title">Blog</h3><!-- /.menu-title -->
-
                     <li>
-                        <a href="create blog.html"><i class=" menu-icon  fas fa-plus "></i> Create Blog</a>
+                        <a href="create blog.php"><i class=" menu-icon  fas fa-plus "></i> Create Blog</a>
                     </li>
                     <li>
                         <a href="#"> <i class="menu-icon fas fa-blog "></i>Posts </a>
@@ -56,7 +86,6 @@
                     <li >
                         <a href="#" > <i class="menu-icon fas fa-images"></i>Manage Photo's</a>
                     </li>
-
                     <li >
                         <a href="#" > <i class="menu-icon fas fa-video"></i>Manage Videos</a>
                     </li>
@@ -74,27 +103,24 @@
         <!-- Header-->
 
         <header id="header" class="header">
-
             <div class="header-menu">
                 <div class="col-sm-9">
-                    <h3>Travel Blog</h3>       
+                    <h3>Dashboard</h3>       
                 </div>
-
                 <div class="col-sm-3">
                     <div class="header-left" >
                         <div class="user-area dropdown float-right">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span>Hi! Username  <i class="fas fa-chevron-circle-down"></i></span>
+                                <span>Hi! <?php echo $_SESSION['username']; ?>  <i class="fas fa-chevron-circle-down"></i></span>
                             </a>
                             <div class="user-menu dropdown-menu">
                                 <a class="nav-link" href="#"><i class="fas fa-user-circle"></i> My Profile</a>
-                                <a class="nav-link" href="#"><i class="fa fa-power-off"></i> Logout</a>
+                                <a class="nav-link" href="../logout.php"><i class="fa fa-power-off"></i> Logout</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </header>
         
         <!-- Header-->
@@ -103,15 +129,13 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>Dashboard</h1>
+                        <h1>Summary</h1>
                     </div>
                 </div>
             </div>
-            
         </div>
 
-        <div class="content mt-3">
-
+        <!-- <div class="content mt-3">
             <div class="col-sm-12">
                 <div class="alert  alert-success alert-dismissible fade show" role="alert">
                     <span class="badge badge-pill badge-success">Success</span> You successfully read this important alert message.
@@ -119,7 +143,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-            </div>
+            </div> -->
 
             <div class="col-xl-3 col-lg-4">
                 <div class="card">
@@ -128,7 +152,7 @@
                             <div class="stat-icon dib"><i class="fas fa-file-alt"style="font-size:25px;color: #28a745"></i></div>
                             <div class="stat-content dib">
                                 <div class="stat-text">Total Posts</div>
-                                <div class="stat-digit">5</div>
+                                <div class="stat-digit"><?php echo $num_posts; ?></div>
                             </div>
                         </div>
                     </div>
@@ -157,7 +181,7 @@
                             <div class="stat-icon dib"><i class="fas fa-comment" style="font-size:25px;color:yellowgreen"></i></div>
                             <div class="stat-content dib">
                                 <div class="stat-text">Comments</div>
-                                <div class="stat-digit">770</div>
+                                <div class="stat-digit"><?php echo $num_comments; ?></div>
                             </div>
                         </div>
                     </div>
