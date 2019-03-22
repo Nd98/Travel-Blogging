@@ -138,7 +138,72 @@
                 </div>
             </div>
         </div>
+        <section class="container ">
+        <div class="row">
+        <div class="col-lg-6">
+        <label class="my-1 mr-2" for="place">Select Place</label>
+        <select class="custom-select my-1 mr-sm-2" id="place" name="place" required>
+        <option selected value="asia">Asia</option>
+        <option value="europe">Europe</option>
+        <option value="australia">Australia</option>
+        <option value="africa">Africa</option>
+        <option value="middle-east">Middle East</option>
+        <option value="canada">Canada</option>
+        </select>
+        </div>
+        <div class="col-lg-6">
+        <label class="my-1 mr-2" for="place-images">Upload Images: </label>
+        <div class="custom-file">
+        <input required type="file" class="custom-file-input" id="places-images" name="placeImage">
+        <label class="custom-file-label" for="customFile">Choose Image</label>
+        </div>
+        </div>
+        </div>
+        <div class="row">
+        <div class="col-lg-12 mt-2 mb-3">
+            <button type="submit" class="btn btn-primary">Upload</button>
+          </div>
+        </div> 
 
+       
+        <table class="table" style="margin-top:15px">
+  <thead style="background-color:#272c33;">
+    <tr style="color:white">
+      <th scope="col">#</th>
+      <th scope="col">Image Name</th>
+      <th scope="col">Image Thumb</th>
+      <th scope="col">Operation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php
+//   $dir = "upload";
+//   if(is_dir($dir)){
+//     if($dh = opendir($dir)){
+//       $count = 1;
+//       while($file = readdir($dh)){
+//         if($file != "." && $file != ".." && $file !=".DS_Store"){
+//           $dogFilter = explode("-",$file);
+//           $dogName = explode(".",$file);
+//           echo '
+//           <tr>
+//           <th scope="row">'.$count.'</th>
+//           <td>'.$dogName[0].'</td>
+//           <td><img src="upload/'.$file.'" height="30px" width="30px" /></td>
+//           <td><a class="btn btn-danger" href="dashboard.php?q='.$file.'" type="button">Delete</a></td>
+//         </tr>
+//         ';
+//         $count++;
+//         }
+        
+//       }
+//     }
+//   }
+    ?> 
+  </tbody>
+</table>                     
+        </section>
+        
 
         <script src="vendors/jquery/dist/jquery.min.js"></script>
     <script src="vendors/popper.js/dist/umd/popper.min.js"></script>
