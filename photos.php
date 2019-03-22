@@ -1,3 +1,12 @@
+<?php 
+  session_start();
+  require('controllers/blogController.php'); 
+  
+    $popular_posts_result = getPopularPosts();
+  $popular_author_result = getPopularAuthors();
+  $popular_categories_result = getPopularCategories();
+
+  ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -159,7 +168,7 @@
     <div class="col-sm-12 col-lg-4 col-xl-4 mb-4" id="asia-1">
   
   <div class="view  zoom rounded z-depth-1-half mb-lg-0 mb-4" >
-  <img class="img-fluid" src="img/places/asia-img/asia-1.webp" alt="Sample image"  >
+  <img class="img-fluid" src="img/places/asia/asia-1.webp" alt="Sample image"  >
   <button id="btn-asia-1"  >
     <div class="mask rgba-white-slight">
       <p class="fnt-img flex-center">TAJ MAHAL</p>
@@ -176,7 +185,7 @@
           <div class="col-sm-12 col-lg-4 col-xl-4 mb-4" id="asia-2">
             
             <div class="view  zoom rounded z-depth-1-half mb-lg-0 mb-4" >
-            <img class="img-fluid" src="img/places/asia-img/asia-2.jpg" alt="Sample image"  >
+            <img class="img-fluid" src="img/places/asia/asia-2.jpg" alt="Sample image"  >
             <button id="btn-asia-2" >
               <div class="mask rgba-white-slight">
                 <p class="fnt-img flex-center">THE FORBIDDEN CITY</p>
@@ -193,7 +202,7 @@
           <div class="col-sm-12 col-lg-4 col-xl-4 mb-4" id="asia-3">
   
             <div class="view  zoom rounded z-depth-1-half mb-lg-0 mb-4" >
-            <img class="img-fluid" src="img/places/asia-img/asia-3.jpg" alt="Sample image"  >
+            <img class="img-fluid" src="img/places/asia/asia-3.jpg" alt="Sample image"  >
             <button id="btn-asia-3" >
               <div class="mask rgba-white-slight">
                 <p class="fnt-img flex-center">RED FORT</p>
@@ -210,7 +219,7 @@
          <div class="col-sm-12 col-lg-4 col-xl-4 mb-4" id="asia-4">
   
               <div class="view  zoom rounded z-depth-1-half mb-lg-0 mb-4">
-              <img class="img-fluid" src="img/places/asia-img/asia-4.jpg" alt="Sample image">
+              <img class="img-fluid" src="img/places/asia/asia-4.jpg" alt="Sample image">
               <button id="btn-asia-4" >
               <div class="mask rgba-white-slight">
                 <p class="fnt-img flex-center">CHENNAI</p>
@@ -227,7 +236,7 @@
           <div class="col-sm-12 col-lg-4 col-xl-4 mb-4" id="asia-5">
   
               <div class="view  zoom rounded z-depth-1-half mb-lg-0 mb-4">
-              <img class="img-fluid" src="img/places/asia-img/asia-5.jpg" alt="Sample image">
+              <img class="img-fluid" src="img/places/asia/asia-5.jpg" alt="Sample image">
               <button id="btn-asia-5" >
               <div class="mask rgba-white-slight">
                 <p class="fnt-img flex-center">GOLDEN TEMPLE</p>
@@ -244,7 +253,7 @@
            <div class="col-sm-12 col-lg-4 col-xl-4 mb-4" id="asia-6">
   
               <div class="view  zoom rounded z-depth-1-half mb-lg-0 mb-4">
-              <img class="img-fluid" src="img/places/asia-img/asia-6.jpg" alt="Sample image">
+              <img class="img-fluid" src="img/places/asia/asia-6.jpg" alt="Sample image">
               <button id="btn-asia-6" >
               <div class="mask rgba-white-slight">
                 <p class="fnt-img flex-center">HAWA MAHAL</p>
@@ -262,7 +271,7 @@
              <div class="col-sm-12 col-lg-4 col-xl-4 mb-4" id="asia-7">
   
               <div class="view  zoom rounded z-depth-1-half mb-lg-0 mb-4">
-              <img class="img-fluid" src="img/places/asia-img/asia-7.jpg" alt="Sample image">
+              <img class="img-fluid" src="img/places/asia/asia-7.jpg" alt="Sample image">
               <button id="btn-asia-7" >
               <div class="mask rgba-white-slight">
                 <p class="fnt-img flex-center">CHITTORGARH FORT</p>
@@ -704,24 +713,20 @@
               <h4 class="font-weight-bold mt-5"><i class="far fa-newspaper mr-2"></i>Popular Posts</h4>
               <hr>
               <div class="">
-              <div class="pp mb-2">
-                <div class="pp-title">
-                  <a class="dark-grey-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a>
+              <?php
+            if($popular_posts_result){
+              while($row = mysqli_fetch_assoc($popular_posts_result)){
+                echo '
+                <div class="pp mb-2">
+                  <div class="pp-title">
+                    <a class="dark-grey-text">'.$row['excerpt'].'</a>
+                  </div>
+                  <div><span class="pp-author"><a>'.$row['username'].'</a></span><span class="date">'.$row['creation_date'].'</span></div>
                 </div>
-                <div><span class="pp-author"><a>Jesica Clark</a></span><span class="date">19-12-2018</span></div>
-              </div>
-              <div class="pp mb-2">
-                <div class="pp-title">
-                  <a class="dark-grey-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a>
-                </div>
-                <div><span class="pp-author"><a>Jesica Clark</a></span><span class="date">19-12-2018</span></div>
-              </div>
-              <div class="pp mb-2">
-                <div class="pp-title">
-                  <a class="dark-grey-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a>
-                </div>
-                <div><span class="pp-author"><a>Jesica Clark</a></span><span class="date">19-12-2018</span></div>
-              </div>
+                ';
+              }
+            }
+            ?>
               </div>
             </div>
           </div>
@@ -731,18 +736,18 @@
                 <h4 class="font-weight-bold mt-5"><i class="fas fa-users mr-2"></i>Popular Authors</h4>
                 <hr>
                 <div class=""> 
+                <?php
+            if($popular_author_result){
+              while($row = mysqli_fetch_assoc($popular_author_result)){
+                echo '
                 <div class="mb-2">
-                  <img src="" alt="JC" class="mr-2"/>
-                  <span class="pp-title dark-grey-text mr-2">Jesica Clark</span><span class="no-of-posts">No. of Posts</span>
+                  <!--<img src="" alt="" class="mr-2"/>-->
+                  <span class="pp-title dark-grey-text mr-2">'.$row['username'].'</span><span class="no-of-posts">'.$row['id'].'</span>
                 </div>
-                <div class="mb-2">
-                  <img src="" alt="JC" class="mr-2"/>
-                  <span class="pp-title dark-grey-text mr-2">Jesica Clark</span><span class="no-of-posts">No. of Posts</span>
-                </div>
-                <div class="mb-2">
-                  <img src="" alt="JC" class="mr-2"/>
-                  <span class="pp-title dark-grey-text mr-2">Jesica Clark</span><span class="no-of-posts">No. of Posts</span>
-                </div>
+                ';
+              }
+            }
+            ?>
                 </div>
               </div>
             </div>
