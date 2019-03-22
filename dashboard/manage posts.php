@@ -32,6 +32,7 @@
     }
 
     $posts_result = getUserBlogs($_SESSION['username']); 
+    
 
 
 ?>
@@ -181,55 +182,59 @@
             <hr class="my-3">
 
                 <?php
-          if(mysqli_num_rows($posts_result) > 0){
-              $id = 1;
-              while($row = mysqli_fetch_assoc($posts_result)){
+                if($posts_result > 0){
+                    if(mysqli_num_rows($posts_result) > 0){
+                        $id = 1;
+                        while($row = mysqli_fetch_assoc($posts_result)){
 
-                echo '
-                     
-                <div class="row" style="margin-top:0.6rem">
-                <div class="col-lg-8">
-                    <div class="row">
-                        <div class="col-lg-2">
-                            <div>'.$id.'</div>
-                        </div>
-                        <div class="col-lg-3">
-                            <div>'.$row['title'].'</div>
-                        </div>
-                        <div class="col-lg-7">
-                            <div>'.$row['excerpt'].'</div>
-                        </div>
-                    </div>
-                </div>
-    
-                <div class="col-lg-4">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div>'.$row['creation_date'].'</div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="row">
-                                <div class="col-lg-3">
-                                    <!--<button type="button" class="btn btn-success" data-toggle="modal" data-target="#addMembers">Add Members</button></div>-->
-                                    <a href="#addMembers" data-toggle="modal" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                            echo '
+                                
+                            <div class="row" style="margin-top:0.6rem">
+                            <div class="col-lg-8">
+                                <div class="row">
+                                    <div class="col-lg-2">
+                                        <div>'.$id.'</div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div>'.$row['title'].'</div>
+                                    </div>
+                                    <div class="col-lg-7">
+                                        <div>'.$row['excerpt'].'</div>
+                                    </div>
                                 </div>
-                                <div class="col-lg-3">
-                                    <a href="delete.php?id='.$row['id'].'" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                            </div>
+                
+                            <div class="col-lg-4">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div>'.$row['creation_date'].'</div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="row">
+                                            <div class="col-lg-3">
+                                                <!--<button type="button" class="btn btn-success" data-toggle="modal" data-target="#addMembers">Add Members</button></div>-->
+                                                <a href="#addMembers" data-toggle="modal" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <a href="delete.php?id='.$row['id'].'" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
-                        
-                    </div>
-                </div>
-            </div>
 
-            <hr class="my-3">
-            ';
-            $id+=1;
-    
-                  }
-              }
-               
+                        <hr class="my-3">
+                        ';
+                        $id+=1;
+                
+                            }
+                        }
+                    }
+                    else{
+                        echo '<h3> No Blog Posts Found</h3>';
+                    }
         ?>
 
         </div>
@@ -239,7 +244,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add New Member</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Update Posts</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -249,16 +254,16 @@
       <form method="POST" action="#">
         <div class="form-row align-items-center">
             <div class="col-lg-12 my-1">
-            <label class="sr-only" for="inlineFormInputGroupUsername">Memberhip No.</label>
+            <label class="sr-only" for="inlineFormInputGroupUsername">Title</label>
             <div class="input-group">
                 <div class="input-group-prepend">
-                <div class="input-group-text">Membership No.</div>
+                <div class="input-group-text">Title</div>
                 </div>
-                <input type="number" name="mno" class="form-control" id="inlineFormInputGroupUsername" placeholder="445332">
+                <input type="text" name="title" class="form-control" id="inlineFormInputGroupUsername" placeholder="">
             </div>
             </div>
             <div class="col-lg-12 my-1">
-            <label class="sr-only" for="inlineFormInputGroupUsername">First Name</label>
+            <label class="sr-only" for="inlineFormInputGroupUsername">Excerpt</label>
             <div class="input-group">
                 <div class="input-group-prepend">
                 <div class="input-group-text">First Name</div>
