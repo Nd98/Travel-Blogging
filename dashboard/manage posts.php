@@ -5,34 +5,9 @@
     if(!isset($_SESSION['username'])){
         header("Location: ../login.php");
     }
-    
-    if(isset($_POST['title'])){
-       $data[0] = 1;
-       $data[1] = $_SESSION['username'];
-       $data[2] = $_POST['title'];
-       $data[3] = date("Y-m-d");
-       $data[4] = $_POST['excerpt'];
-       $data[5] = $_POST['content'];
-       $data[6] = "img"."/places"."/".$_POST['place']."/".$_FILES['placeImage']['name'];
-       $data[7] = $_POST['place'];
-       $data[8] = $_FILES['placeImage']['tmp_name'];
-       
-       $isExecuted = insertBlog($data);
-       
-       if($isExecuted){
-           $_SESSION['created_message'] = "Blog created Successfully";
-           header("Location: create blog.php");
-       }
 
-       else{
-           $_SESSION['created_message'] = "Something went wrong";
-           header("Location: create blog.php");
-       }
-       
-    }
+    $posts_result = getAllBlogs();
 
-    $posts_result = getUserBlogs($_SESSION['username']); 
-    
 
 
 ?>
@@ -71,6 +46,7 @@
         }
 
     </style>
+
 </head>
 
 <body>
@@ -130,7 +106,7 @@
                                 <span>Hi! <?php echo $_SESSION['username'] ?>  <i class="fas fa-chevron-circle-down"></i></span>
                             </a>
                             <div class="user-menu dropdown-menu">
-                                <a class="nav-link" href="#"><i class="fas fa-user-circle"></i> My Profile</a>
+                                <a class="nav-link" href="../index.php"><i class="fas fa-user-circle"></i>Home Page</a>
                                 <a class="nav-link" href="../logout.php"><i class="fa fa-power-off"></i> Logout</a>
                             </div>
                         </div>
@@ -182,59 +158,58 @@
             <hr class="my-3">
 
                 <?php
-                if($posts_result > 0){
-                    if(mysqli_num_rows($posts_result) > 0){
-                        $id = 1;
-                        while($row = mysqli_fetch_assoc($posts_result)){
+          if(mysqli_num_rows($posts_result) > 0){
+              $id = 1;
+              while($row = mysqli_fetch_assoc($posts_result)){
 
-                            echo '
-                                
-                            <div class="row" style="margin-top:0.6rem">
-                            <div class="col-lg-8">
-                                <div class="row">
-                                    <div class="col-lg-2">
-                                        <div>'.$id.'</div>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <div>'.$row['title'].'</div>
-                                    </div>
-                                    <div class="col-lg-7">
-                                        <div>'.$row['excerpt'].'</div>
-                                    </div>
+                echo '
+                     
+                <div class="row" style="margin-top:0.6rem">
+                <div class="col-lg-8">
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <div>'.$id.'</div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div id="post-title-'.$row['id'].'">'.$row['title'].'</div>
+                        </div>
+                        <div class="col-lg-7">
+                            <div id="post-excerpt-'.$row['id'].'">'.$row['excerpt'].'</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="post-content-'.$row['id'].'" hidden>'.$row['content'].'</div>
+                <div id="post-tags-'.$row['id'].'" hidden>'.$row['tags'].'</div>
+    
+                <div class="col-lg-4">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div id="post-date-'.$row['id'].'">'.$row['creation_date'].'</div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <!--<button type="button" class="btn btn-success" data-toggle="modal" data-target="#addMembers">Add Members</button></div>-->
+                                    <button name="'.$row['id'].'" onclick="toggleModel(this);" data-toggle="modal" data-target="#addMembers" class="btn btn-primary"><i class="fas fa-edit"></i></button>
                                 </div>
-                            </div>
-                
-                            <div class="col-lg-4">
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div>'.$row['creation_date'].'</div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="row">
-                                            <div class="col-lg-3">
-                                                <!--<button type="button" class="btn btn-success" data-toggle="modal" data-target="#addMembers">Add Members</button></div>-->
-                                                <a href="#addMembers" data-toggle="modal" class="btn btn-primary"><i class="fas fa-edit"></i></a>
-                                            </div>
-                                            <div class="col-lg-3">
-                                                <a href="delete.php?id='.$row['id'].'" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
+                                <div class="col-lg-3">
+                                    <a href="delete.php?id='.$row['id'].'" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
                                 </div>
                             </div>
                         </div>
+                        
+                    </div>
+                </div>
+            </div>
 
-                        <hr class="my-3">
-                        ';
-                        $id+=1;
-                
-                            }
-                        }
-                    }
-                    else{
-                        echo '<h3> No Blog Posts Found</h3>';
-                    }
+            <hr class="my-3">
+            ';
+            $id+=1;
+    
+                  }
+              }
+               
         ?>
 
         </div>
@@ -251,55 +226,47 @@
       </div>
       
       <div class="modal-body">
-      <form method="POST" action="#">
+      <form method="POST" action="update.php">
+        <input type="text" name="id" hidden id="updateFormId">
         <div class="form-row align-items-center">
             <div class="col-lg-12 my-1">
-            <label class="sr-only" for="inlineFormInputGroupUsername">Title</label>
+            <label class="sr-only" for="update-title">Title</label>
             <div class="input-group">
                 <div class="input-group-prepend">
                 <div class="input-group-text">Title</div>
                 </div>
-                <input type="text" name="title" class="form-control" id="inlineFormInputGroupUsername" placeholder="">
+                <input required type="text" name="title" class="form-control" id="update-title" placeholder="Enter Title">
             </div>
             </div>
             <div class="col-lg-12 my-1">
-            <label class="sr-only" for="inlineFormInputGroupUsername">Excerpt</label>
+            <label class="sr-only" for="update-excerpt">Excerpt</label>
             <div class="input-group">
                 <div class="input-group-prepend">
-                <div class="input-group-text">First Name</div>
+                <div class="input-group-text">Excerpt</div>
                 </div>
-                <input type="text" name="fname" class="form-control" id="inlineFormInputGroupUsername" placeholder="Braylin">
+                <textarea required type="text" name="excerpt" class="form-control" id="update-excerpt" placeholder="Enter Excerpt" rows="2" maxlength="200"> </textarea>
             </div>
             </div>
             <div class="col-lg-12 my-1">
-            <label class="sr-only" for="inlineFormInputGroupUsername">Last Name</label>
+            <label class="sr-only" for="update-content">Content</label>
             <div class="input-group">
                 <div class="input-group-prepend">
-                <div class="input-group-text">Last Name</div>
+                <div class="input-group-text">Content</div>
                 </div>
-                <input type="text" name="lname" class="form-control" id="inlineFormInputGroupUsername" placeholder="Garrett">
+                <textarea required type="text" name="content" class="form-control" id="update-content" placeholder="Enter Content" rows="4"> </textarea>
             </div>
             </div>
             <div class="col-lg-12 my-1">
-            <label class="sr-only" for="inlineFormInputGroupUsername">Email</label>
+            <label class="sr-only" for="update-tags">Tags</label>
             <div class="input-group">
                 <div class="input-group-prepend">
-                <div class="input-group-text">Email</div>
+                <div class="input-group-text">Tags</div>
                 </div>
-                <input type="email" name="email" class="form-control" id="inlineFormInputGroupUsername" placeholder="b.gerrett@gmail.com">
-            </div>
-            </div>
-            <div class="col-lg-12 my-1">
-            <label class="sr-only" for="inlineFormInputGroupUsername">Expiry Date</label>
-            <div class="input-group">
-                <div class="input-group-prepend">
-                <div class="input-group-text">Expiry Date</div>
-                </div>
-                <input type="date" name="date" class="form-control" id="inlineFormInputGroupUsername" placeholder="2019-12-06">
+                <input required type="text" name="tags" class="form-control" id="update-tags" placeholder="Enter Tags">
             </div>
             </div>
             <div class="col-auto my-1" style="float:right">
-                <button type="submit" class="btn btn-primary">Add Member</button>
+                <button type="submit" class="btn btn-primary">Update</button>
             </div>
         </div>
         </form>
@@ -310,7 +277,7 @@
 
 
 
-        <script src="vendors/jquery/dist/jquery.min.js"></script>
+    <script src="vendors/jquery/dist/jquery.min.js"></script>
     <script src="vendors/popper.js/dist/umd/popper.min.js"></script>
     <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="assets/js/main.js"></script>
@@ -339,6 +306,18 @@
                 normalizeFunction: 'polynomial'
             });
         })(jQuery);
+    </script>
+
+<script type="text/javascript">
+        function toggleModel(btn){
+            //console.log(btn.name);
+            $('#updateFormId')[0].value = btn.name;
+            $('#update-title')[0].value = $('#post-title-'+btn.name)[0].innerHTML;
+            $('#update-excerpt')[0].value = $('#post-excerpt-'+btn.name)[0].innerHTML;
+            $('#update-content')[0].value = $('#post-content-'+btn.name)[0].innerHTML;
+            $('#update-tags')[0].value = $('#post-tags-'+btn.name)[0].innerHTML;
+            //document.getElementById('addMembers').classList.add('show');
+        }
     </script>
     
 
