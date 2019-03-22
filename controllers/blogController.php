@@ -53,7 +53,7 @@
     }
 
     function getPopularAuthors(){
-        $sql = "SELECT count('id') as id,username FROM `blog_posts` ORDER BY 'id' DESC LIMIT 3 ";
+        $sql = "SELECT count(id) as id,username from blog_posts GROUP BY username LIMIT 3";
 
         $result = getData($sql);
 
@@ -80,7 +80,7 @@
 
 
     function deleteBlog($id){
-        $sql = "Delete from blog_posts where id = '.$id.'";
+        $sql = "Delete from blog_posts where id = $id";
 
         $isExecuted = setData($sql);
 
