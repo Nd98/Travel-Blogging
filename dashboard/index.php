@@ -1,6 +1,5 @@
 <?php 
     session_start();
-    require('../controllers/blogController.php');
     require('../controllers/commentController.php');
 
     $num_posts = 0;
@@ -88,6 +87,9 @@
                     </li>
                     <li >
                         <a href="manage videos.php" > <i class="menu-icon fas fa-video"></i>Manage Videos</a>
+                    </li>
+                    <li >
+                        <a href="manage comments.php" > <i class="menu-icon fas fa-comments"></i>Manage Comments</a>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->

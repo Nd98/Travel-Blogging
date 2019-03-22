@@ -70,6 +70,9 @@
                     <li>
                         <a href="#" > <i class="menu-icon fas fa-video"></i>Manage Videos</a>
                     </li>
+                    <li >
+                        <a href="manage comments.php" > <i class="menu-icon fas fa-comments"></i>Manage Comments</a>
+                    </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </nav>
