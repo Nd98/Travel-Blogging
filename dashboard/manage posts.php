@@ -31,6 +31,8 @@
        
     }
 
+    $posts_result = getUserBlogs($_SESSION['username']); 
+
 
 ?>
 
@@ -59,6 +61,15 @@
     <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
 
     <script src="../js/bootstrap-notify.js"></script>
+
+    <style>
+        .content{
+            margin-left:0.6rem;
+            margin-top: 0.6rem;
+            margin-bottom: 1rem;
+        }
+
+    </style>
 </head>
 
 <body>
@@ -83,10 +94,10 @@
                     </li>
                     <h3 class="menu-title">Blog</h3><!-- /.menu-title -->
                     <li>
-                        <a href="#"><i class=" menu-icon  fas fa-plus "></i> Create Blog</a>
+                        <a href="create blog.php"><i class=" menu-icon  fas fa-plus "></i> Create Blog</a>
                     </li>
                     <li>
-                        <a href="manage posts.php"> <i class="menu-icon fas fa-blog "></i>Posts </a>
+                        <a href="#"> <i class="menu-icon fas fa-blog "></i>Posts </a>
                     </li>
                     <li>
                         <a href="manage photos.php" > <i class="menu-icon fas fa-images"></i>Manage Photo's</a>
@@ -133,99 +144,168 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>Blog Creator</h1>
+                        <h1>Your Blogs</h1>
                     </div>
                 </div>
             </div>
         </div>
 
-    <!-- /#right-panel -->
-
-        <div class="container ml-3">
-            <div class="row">
-                <div class="col-lg-12 col-xl-12">
-                    <div class="mb-1"></div>
-                        <form id="post-form" enctype="multipart/form-data" name="title" method="POST" action="#">
-                            <div class="row">
-                                <div class="col-lg-6 col-xl-6">
-                                    <div class="md-form mb-0">
-                                        <input required type="text" id="name" name="title" class="form-control" placeholder="Title of the post">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mt-2">
-                                <div class="col-lg-12 col-xl-12">
-                                    <div class="md-form">
-                                        <label for="message">Excerpt</label>
-                                        <textarea required type="text" id="message" name="excerpt" rows="2" class="form-control md-textarea" placeholder="Write your Excerpt( Max. 200 characters )" maxlength="200"></textarea>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row mt-2">
-                                    <div class="col-lg-12 col-xl-12">
-                                        <div class="md-form">
-                                            <label for="message">Blog Content</label>
-                                            <textarea required type="text" id="message" name="content" rows="4" class="form-control md-textarea" placeholder="Write your Content"></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- <div class="row mt-2">
-                                    <div class="col-lg-6 col-xl-6">
-                                        <div class="md-form">
-                                            <label for="message">Tags</label>
-                                            <input type="text" id="name" name="tags" class="form-control" placeholder="Write your Tags separated by commas">
-                                        </div>
-                                    </div>
-                                </div> -->
-
-                                <div class="row mt-2">
-                                        <div class="col-lg-6">
-                                            <label class="my-1 mr-2" for="place">Select Place</label>
-                                            <select class="custom-select my-1 mr-sm-2" id="place" name="place" required>
-                                            <option selected value="asia">Asia</option>
-                                            <option value="europe">Europe</option>
-                                            <option value="australia">Australia</option>
-                                            <option value="africa">Africa</option>
-                                            <option value="middle-east">Middle East</option>
-                                            <option value="canada">Canada</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <label class="my-1 mr-2" for="place-images">Upload Images: </label>
-                                            <div class="custom-file">
-                                                <input required type="file" class="custom-file-input" id="places-images" name="placeImage">
-                                                <label class="custom-file-label" for="customFile">Choose Image</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 mt-2 ">
-                                        <button type="submit" class="btn btn-primary">Create</button>
-                                        </div>
-                                    </div>  
-                                </div>
-                                    </form>
-                                </div>
-                            </div> 
-                        </form>
+        <div class="content">
+            <div class="row" style="margin-top:0.6rem">
+                <div class="col-lg-8 ">
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <h6 style="font-weight:bold">No.</h6>
+                        </div>
+                        <div class="col-lg-3">
+                            <h6 style="font-weight:bold">Title</h6>
+                        </div>
+                        <div class="col-lg-7">
+                            <h6 style="font-weight:bold">Excerpt</h6>
+                        </div>
                     </div>
-                </div>       
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <h6 style="font-weight:bold">Date-Created</h6>
+                        </div>
+                        <div class="col-lg-6">
+                            <h6 style="font-weight:bold">Action</h6>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <script src="../js/notify.js"></script>
+            <hr class="my-3">
 
-        <?php 
-            if(isset($_SESSION['created_message'])){
-                echo '<script>setNotify("'.$_SESSION['created_message'].'")</script>';
-            }
+                <?php
+          if(mysqli_num_rows($posts_result) > 0){
+              $id = 1;
+              while($row = mysqli_fetch_assoc($posts_result)){
 
-            // unset($_SESSION['created_message']);
-                
+                echo '
+                     
+                <div class="row" style="margin-top:0.6rem">
+                <div class="col-lg-8">
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <div>'.$id.'</div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div>'.$row['title'].'</div>
+                        </div>
+                        <div class="col-lg-7">
+                            <div>'.$row['excerpt'].'</div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col-lg-4">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div>'.$row['creation_date'].'</div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <!--<button type="button" class="btn btn-success" data-toggle="modal" data-target="#addMembers">Add Members</button></div>-->
+                                    <a href="#addMembers" data-toggle="modal" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                                </div>
+                                <div class="col-lg-3">
+                                    <a href="delete.php?id='.$row['id'].'" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <hr class="my-3">
+            ';
+            $id+=1;
+    
+                  }
+              }
+               
         ?>
 
+        </div>
 
-    <script src="vendors/jquery/dist/jquery.min.js"></script>
+
+<div class="modal fade" id="addMembers" tabindex="-1" role="dialog" aria-labelledby="Add Members" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add New Member</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+      <form method="POST" action="#">
+        <div class="form-row align-items-center">
+            <div class="col-lg-12 my-1">
+            <label class="sr-only" for="inlineFormInputGroupUsername">Memberhip No.</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                <div class="input-group-text">Membership No.</div>
+                </div>
+                <input type="number" name="mno" class="form-control" id="inlineFormInputGroupUsername" placeholder="445332">
+            </div>
+            </div>
+            <div class="col-lg-12 my-1">
+            <label class="sr-only" for="inlineFormInputGroupUsername">First Name</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                <div class="input-group-text">First Name</div>
+                </div>
+                <input type="text" name="fname" class="form-control" id="inlineFormInputGroupUsername" placeholder="Braylin">
+            </div>
+            </div>
+            <div class="col-lg-12 my-1">
+            <label class="sr-only" for="inlineFormInputGroupUsername">Last Name</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                <div class="input-group-text">Last Name</div>
+                </div>
+                <input type="text" name="lname" class="form-control" id="inlineFormInputGroupUsername" placeholder="Garrett">
+            </div>
+            </div>
+            <div class="col-lg-12 my-1">
+            <label class="sr-only" for="inlineFormInputGroupUsername">Email</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                <div class="input-group-text">Email</div>
+                </div>
+                <input type="email" name="email" class="form-control" id="inlineFormInputGroupUsername" placeholder="b.gerrett@gmail.com">
+            </div>
+            </div>
+            <div class="col-lg-12 my-1">
+            <label class="sr-only" for="inlineFormInputGroupUsername">Expiry Date</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                <div class="input-group-text">Expiry Date</div>
+                </div>
+                <input type="date" name="date" class="form-control" id="inlineFormInputGroupUsername" placeholder="2019-12-06">
+            </div>
+            </div>
+            <div class="col-auto my-1" style="float:right">
+                <button type="submit" class="btn btn-primary">Add Member</button>
+            </div>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+        <script src="vendors/jquery/dist/jquery.min.js"></script>
     <script src="vendors/popper.js/dist/umd/popper.min.js"></script>
     <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="assets/js/main.js"></script>
