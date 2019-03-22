@@ -1,18 +1,21 @@
 <?php 
-    @include('database/connection.php');
+    include('blogController.php');
+
+    function getAllComments(){
+        $sql = "select * from post_comments";
+
+        $result = getData($sql);
+
+        return $result;
+    }
 
     function getComments($post_id){
 
         $sql = "select * from post_comments where post_id = '.$post_id.'";
 
-            $result = getData($sql);
+        $result = getData($sql);
 
-            if(mysqli_num_rows($result) > 0){
-                $row = mysqli_fetch_assoc($result);
-                return $row;
-            }
-
-        return 0;
+        return $result;
     }
 
     function getCommentsByUserId($username){
@@ -21,13 +24,7 @@
         
         $result = getData($sql);
 
-        if(mysqli_num_rows($result) > 0){
-            return $result;
-            // $row = mysqli_fetch_assoc($result);
-            // return $row;
-        }
-
-        return 0;
+        return $result;
     }
 
     function insertComments($data){
@@ -46,5 +43,14 @@
        }
 
        return $isExecuted;
+    }
+
+    function deleteComment($id){
+        $sql = 'Delete from post_comments where id = "'.$id.'"';
+        echo $sql;
+
+        $isExecuted = setData($sql);
+
+        return $isExecuted;
     }
 ?>

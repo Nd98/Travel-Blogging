@@ -1,31 +1,31 @@
 <?php 
-    @include('database/connection.php');
-    @include('../database/connection.php');
+    include('../database/connection.php');
 
     function getAllBlogs(){
         $sql = "select * from blog_posts";
 
         $result = getData($sql);
 
+        return $result;
+
+    }
+
+    function getBlogById($id){
+        $sql = "select * from blog_posts where id=$id";
+
+        $result = getData($sql);
 
         if(mysqli_num_rows($result) > 0){
-            return $result;
+            $row = mysqli_fetch_assoc($result);
+            return $row;
         }
-
-        return 0;
-
     }
     function getBlogsLimit($limit){
         $sql = "select * from blog_posts LIMIT $limit";
 
         $result = getData($sql);
 
-
-        if(mysqli_num_rows($result) > 0){
-            return $result;
-        }
-
-        return 0;
+        return $result;
     }
 
     function getUserBlogs($username){
@@ -33,11 +33,7 @@
         
         $result = getData($sql);
 
-        if(mysqli_num_rows($result) > 0){
-            return $result;
-        }
-
-        return 0;
+        return $result;
     }
 
     function getPopularPosts(){
@@ -45,11 +41,7 @@
 
         $result = getData($sql);
 
-        if(mysqli_num_rows($result) > 0){
-            return $result;
-        }
-
-        return 0;
+        return $result;
     }
 
     function getPopularAuthors(){
@@ -57,11 +49,7 @@
 
         $result = getData($sql);
 
-        if(mysqli_num_rows($result) > 0){
-            return $result;
-        }
-
-        return 0;
+        return $result;
     }
 
     function getPopularCategories(){
@@ -71,11 +59,7 @@
 
         $result = getData($sql);
 
-        if(mysqli_num_rows($result) > 0){
-            return $result;
-        }
-
-        return 0;
+        return $result;
     }
 
 
