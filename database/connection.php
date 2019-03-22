@@ -2,7 +2,7 @@
 	$host="localhost:3306";
     $user="root";
     $password="";
-    $db="travel-blogging";
+    $db="travel blog";
 
     $con = mysqli_connect($host,$user,$password);
 

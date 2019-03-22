@@ -63,12 +63,27 @@
       </li>
     </ul>
     <ul class="navbar-nav nav-flex-icons">
+    <div>
+    <li class="nav-item">
+          <button onclick="location.href = 'login.php';" class="btn btn-rounded btn-sm aqua-gradient">Login</button>
+        </li>
+        <li class="nav-item">
+          <button onclick="location.href = 'signup.php';" class="btn btn-rounded btn-sm aqua-gradient">Signup</button>
+        </li>
+    </div>
+    <div>
       <li class="nav-item">
-        <button onclick="location.href = 'login.php';" class="btn btn-rounded btn-sm aqua-gradient">Login</button>
-      </li>
-      <li class="nav-item">
-        <button onclick="location.href = 'signup.php';" class="btn btn-rounded btn-sm aqua-gradient">Signup</button>
-      </li>
+      <button onclick="location.href = 'dashboard/index.php';"  class="btn btn-rounded btn-sm aqua-gradient" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+       Dashboard 
+     </button>
+    </li>
+       <li class="nav-item">
+     <button class="btn btn-rounded btn-sm aqua-gradient" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Logout 
+     </button>
+     </li>
+     </div>
+    </li>
       <li class="nav-item">
         <a class="nav-link"><i class="fab fa-facebook-f"></i></a>
       </li>
