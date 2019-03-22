@@ -15,6 +15,18 @@
         return 0;
 
     }
+    function getBlogsLimit($limit){
+        $sql = "select * from blog_posts LIMIT $limit";
+
+        $result = getData($sql);
+
+
+        if(mysqli_num_rows($result) > 0){
+            return $result;
+        }
+
+        return 0;
+    }
 
     function getUserBlogs($username){
         $sql = 'select * from blog_posts where username = "'.$username.'"';
@@ -41,7 +53,7 @@
     }
 
     function getPopularAuthors(){
-        $sql = "SELECT count('id'),'username' FROM `blog_posts` ORDER BY 'id' DESC LIMIT 3 ";
+        $sql = "SELECT count('id') as id,username FROM `blog_posts` ORDER BY 'id' DESC LIMIT 3 ";
 
         $result = getData($sql);
 

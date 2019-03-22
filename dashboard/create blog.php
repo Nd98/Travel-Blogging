@@ -7,6 +7,7 @@
     }
     
     if(isset($_POST['title'])){
+        exit();
        $data[0] = 1;
        $data[1] = $_SESSION['username'];
        $data[2] = $_POST['title'];
@@ -14,7 +15,7 @@
        $data[4] = $_POST['excerpt'];
        $data[5] = $_POST['content'];
        $data[6] = "img"."/places"."/".$_POST['place']."/".$_FILES['placeImage']['name'];
-       $data[7] = $_POST['tags'];
+       $data[7] = $_POST['place'];
        $data[8] = $_FILES['placeImage']['tmp_name'];
        
        $isExecuted = insertBlog($data);
@@ -149,7 +150,7 @@
                             <div class="row">
                                 <div class="col-lg-6 col-xl-6">
                                     <div class="md-form mb-0">
-                                        <input type="text" id="name" name="title" class="form-control" placeholder="Title of the post">
+                                        <input required type="text" id="name" name="title" class="form-control" placeholder="Title of the post">
                                     </div>
                                 </div>
                             </div>
@@ -157,7 +158,7 @@
                                 <div class="col-lg-12 col-xl-12">
                                     <div class="md-form">
                                         <label for="message">Excerpt</label>
-                                        <textarea type="text" id="message" name="excerpt" rows="2" class="form-control md-textarea" placeholder="Write your Excerpt"></textarea>
+                                        <textarea required type="text" id="message" name="excerpt" rows="2" class="form-control md-textarea" placeholder="Write your Excerpt"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -166,37 +167,36 @@
                                     <div class="col-lg-12 col-xl-12">
                                         <div class="md-form">
                                             <label for="message">Blog Content</label>
-                                            <textarea type="text" id="message" name="content" rows="4" class="form-control md-textarea" placeholder="Write your Content"></textarea>
+                                            <textarea required type="text" id="message" name="content" rows="4" class="form-control md-textarea" placeholder="Write your Content"></textarea>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="row mt-2">
+                                <!-- <div class="row mt-2">
                                     <div class="col-lg-6 col-xl-6">
                                         <div class="md-form">
                                             <label for="message">Tags</label>
                                             <input type="text" id="name" name="tags" class="form-control" placeholder="Write your Tags separated by commas">
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
 
                                 <div class="row mt-2">
                                         <div class="col-lg-6">
                                             <label class="my-1 mr-2" for="place">Select Place</label>
-                                            <select class="custom-select my-1 mr-sm-2" id="place" name="place" required=true>
-                                            <option selected>Choose place...</option>
-                                            <option value="asia-img">Asia</option>
+                                            <select class="custom-select my-1 mr-sm-2" id="place" name="place" required>
+                                            <option selected value="asia">Asia</option>
                                             <option value="europe">Europe</option>
                                             <option value="australia">Australia</option>
                                             <option value="africa">Africa</option>
-                                            <option value="east">Middle East</option>
+                                            <option value="middle-east">Middle East</option>
                                             <option value="canada">Canada</option>
                                             </select>
                                         </div>
                                         <div class="col-lg-6">
                                             <label class="my-1 mr-2" for="place-images">Upload Images: </label>
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="places-images" name="placeImage">
+                                                <input required type="file" class="custom-file-input" id="places-images" name="placeImage">
                                                 <label class="custom-file-label" for="customFile">Choose Image</label>
                                             </div>
                                         </div>

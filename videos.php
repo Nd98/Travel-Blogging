@@ -135,7 +135,7 @@
         </div>
        
       </div>
-      <hr class="my-5">
+      <!-- <hr class="my-5"> -->
   
        <div class="row">
   
