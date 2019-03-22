@@ -6,6 +6,14 @@
   $popular_author_result = getPopularAuthors();
   $popular_categories_result = getPopularCategories();
 
+  if(isset($_SESSION['username'])){
+    echo "<script>var isLoggedIN = 'true';console.log(isLoggedIN)</script>";
+  }
+
+  else{
+    echo "<script>var isLoggedIN = 'false';console.log(isLoggedIN)</script>";
+  }
+
   ?>
 
 
@@ -67,24 +75,45 @@
         </li>
       </ul>
       <ul class="navbar-nav nav-flex-icons">
-        <li class="nav-item">
+        <li class="nav-item" id="loginBtn" hidden>
           <button onclick="location.href = 'login.php';" class="btn btn-rounded btn-sm aqua-gradient">Login</button>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" id="signupBtn" hidden>
           <button onclick="location.href = 'signup.php';" class="btn btn-rounded btn-sm aqua-gradient">Signup</button>
         </li>
-        <li class="nav-item">
-          <a class="nav-link"><i class="fab fa-facebook-f"></i></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link"><i class="fab fa-twitter"></i></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link"><i class="fab fa-instagram"></i></a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+      <li class="nav-item" id="dashBtn" hidden>
+      <button onclick="location.href = 'dashboard/index.php';"  class="btn btn-rounded btn-sm aqua-gradient" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+       Dashboard 
+     </button>
+    </li>
+       <li class="nav-item" id="logoutBtn" hidden>
+     <button onclick="location.href = 'logout.php';" class="btn btn-rounded btn-sm aqua-gradient" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Logout 
+     </button>
+     </li>
+      <li class="nav-item">
+        <a class="nav-link"><i class="fab fa-facebook-f"></i></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"><i class="fab fa-twitter"></i></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"><i class="fab fa-instagram"></i></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<script>
+if(isLoggedIN=="true"){
+  document.getElementById('dashBtn').hidden = false;
+  document.getElementById('logoutBtn').hidden = false;
+}
+else{
+  document.getElementById('loginBtn').hidden = false;
+  document.getElementById('signupBtn').hidden = false;
+}
+</script>
   <!-- Navbar -->
   
   <!--Carousel Wrapper-->
@@ -244,7 +273,7 @@
                 echo '
                 <div class="mb-2">
                   <!--<img src="" alt="" class="mr-2"/>-->
-                  <span class="pp-title dark-grey-text mr-2">'.$row['username'].'</span><span class="no-of-posts">'.$row['id'].'</span>
+                  <span class="pp-title dark-grey-text mr-2">'.$row['username'].'</span><span class="no-of-posts">No. of Posts: '.$row['id'].'</span>
                 </div>
                 ';
               }

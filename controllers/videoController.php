@@ -7,12 +7,7 @@
 
         $result = getData($sql);
 
-        if(mysqli_num_rows($result) > 0){
-            $row = mysqli_fetch_assoc($result);
-            return $row;
-        }
-
-        return 0;
+        return $result;
     }
 
     function getVideosByCategory($category){
@@ -20,12 +15,7 @@
 
         $result = getData($sql);
 
-        if(mysqli_num_rows($result) > 0){
-            $row = mysqli_fetch_assoc($result);
-            return $row;
-        }
-
-        return 0;
+        return $result;
     }
 
     function insertVideos($data){

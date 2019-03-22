@@ -1,31 +1,31 @@
 <?php 
-    @include('database/connection.php');
-    @include('../database/connection.php');
+    include('../database/connection.php');
 
     function getAllBlogs(){
         $sql = "select * from blog_posts";
 
         $result = getData($sql);
 
+        return $result;
+
+    }
+
+    function getBlogById($id){
+        $sql = "select * from blog_posts where id=$id";
+
+        $result = getData($sql);
 
         if(mysqli_num_rows($result) > 0){
-            return $result;
+            $row = mysqli_fetch_assoc($result);
+            return $row;
         }
-
-        return 0;
-
     }
     function getBlogsLimit($limit){
         $sql = "select * from blog_posts LIMIT $limit";
 
         $result = getData($sql);
 
-
-        if(mysqli_num_rows($result) > 0){
-            return $result;
-        }
-
-        return 0;
+        return $result;
     }
 
     function getUserBlogs($username){
@@ -33,11 +33,7 @@
         
         $result = getData($sql);
 
-        if(mysqli_num_rows($result) > 0){
-            return $result;
-        }
-
-        return 0;
+        return $result;
     }
 
     function getPopularPosts(){
@@ -45,11 +41,7 @@
 
         $result = getData($sql);
 
-        if(mysqli_num_rows($result) > 0){
-            return $result;
-        }
-
-        return 0;
+        return $result;
     }
 
     function getPopularAuthors(){
@@ -57,11 +49,7 @@
 
         $result = getData($sql);
 
-        if(mysqli_num_rows($result) > 0){
-            return $result;
-        }
-
-        return 0;
+        return $result;
     }
 
     function getPopularCategories(){
@@ -71,11 +59,7 @@
 
         $result = getData($sql);
 
-        if(mysqli_num_rows($result) > 0){
-            return $result;
-        }
-
-        return 0;
+        return $result;
     }
 
 
@@ -91,13 +75,11 @@
        $id = $data[0];
        $username = $data[1];
        $title = $data[2];
-       $creation_date = $data[3];
-       $excerpt = $data[4];
-       $content = $data[5];
-       $header_image = $data[6];
-       $tags = $data[7];
+       $excerpt = $data[3];
+       $content = $data[4];
+       $tags = $data[5];
 
-       $sql = "UPDATE `blog_posts` SET `title`= '.$title.',`excerpt`= '.$excerpt.',`content`= '.$content.',`header_image`= '.$header_image.',`tags`= '.$tags.' WHERE `username`='.$username.' AND `id` = '.$id.'";
+       $sql = "UPDATE `blog_posts` SET `title`= '$title',`excerpt`= '$excerpt',`content`= '$content',`tags`= '$tags' WHERE `username`='$username' AND `id` = '$id'";
 
        $isExecuted = setData($sql);
 

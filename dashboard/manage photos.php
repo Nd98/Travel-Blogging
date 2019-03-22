@@ -6,30 +6,7 @@
         header("Location: ../login.php");
     }
     
-    if(isset($_POST['title'])){
-       $data[0] = 1;
-       $data[1] = $_SESSION['username'];
-       $data[2] = $_POST['title'];
-       $data[3] = date("Y-m-d");
-       $data[4] = $_POST['excerpt'];
-       $data[5] = $_POST['content'];
-       $data[6] = "img"."/places"."/".$_POST['place']."/".$_FILES['placeImage']['name'];
-       $data[7] = $_POST['place'];
-       $data[8] = $_FILES['placeImage']['tmp_name'];
-       
-       $isExecuted = insertBlog($data);
-       
-       if($isExecuted){
-           $_SESSION['created_message'] = "Blog created Successfully";
-           header("Location: create blog.php");
-       }
 
-       else{
-           $_SESSION['created_message'] = "Something went wrong";
-           header("Location: create blog.php");
-       }
-       
-    }
 
 
 ?>
@@ -94,6 +71,9 @@
                     <li>
                         <a href="manage videos.php" > <i class="menu-icon fas fa-video"></i>Manage Videos</a>
                     </li>
+                    <li >
+                        <a href="manage comments.php" > <i class="menu-icon fas fa-comments"></i>Manage Comments</a>
+                    </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </nav>
@@ -118,7 +98,7 @@
                                 <span>Hi! <?php echo $_SESSION['username'] ?>  <i class="fas fa-chevron-circle-down"></i></span>
                             </a>
                             <div class="user-menu dropdown-menu">
-                                <a class="nav-link" href="#"><i class="fas fa-user-circle"></i> My Profile</a>
+                                <a class="nav-link" href="../index.php"><i class="fas fa-user-circle"></i> Home Page</a>
                                 <a class="nav-link" href="../logout.php"><i class="fa fa-power-off"></i> Logout</a>
                             </div>
                         </div>

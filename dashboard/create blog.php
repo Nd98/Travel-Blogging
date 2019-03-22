@@ -94,6 +94,9 @@
                     <li>
                         <a href="manage videos.php" > <i class="menu-icon fas fa-video"></i>Manage Videos</a>
                     </li>
+                    <li >
+                        <a href="manage comments.php" > <i class="menu-icon fas fa-comments"></i>Manage Comments</a>
+                    </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </nav>
@@ -118,7 +121,7 @@
                                 <span>Hi! <?php echo $_SESSION['username'] ?>  <i class="fas fa-chevron-circle-down"></i></span>
                             </a>
                             <div class="user-menu dropdown-menu">
-                                <a class="nav-link" href="#"><i class="fas fa-user-circle"></i> My Profile</a>
+                                <a class="nav-link" href="../index.php"><i class="fas fa-user-circle"></i>Home Page</a>
                                 <a class="nav-link" href="../logout.php"><i class="fa fa-power-off"></i> Logout</a>
                             </div>
                         </div>

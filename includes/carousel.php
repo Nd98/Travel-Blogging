@@ -32,7 +32,7 @@
               <strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, autem. At, odit minus, laboriosam tempore</strong>
             </p>
 
-            <a target="_blank" href="https://mdbootstrap.com/education/bootstrap/" class="btn btn-outline-white btn-lg">Read More
+            <a target="_blank" href="about.php" class="btn btn-outline-white btn-lg">Read More
               <i class="fas fa-arrow-alt-circle-right ml-2"></i>
             </a>
           </div>
@@ -66,7 +66,7 @@
               <strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, autem. At, odit minus, laboriosam tempore</strong>
             </p>
 
-            <a target="_blank" href="https://mdbootstrap.com/education/bootstrap/" class="btn btn-outline-white btn-lg">Read More
+            <a target="_blank" href="about.php" class="btn btn-outline-white btn-lg">Read More
               <i class="fas fa-arrow-alt-circle-right ml-2"></i>
             </a>
           </div>
@@ -100,7 +100,7 @@
               <strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, autem. At, odit minus, laboriosam tempore</strong>
             </p>
 
-            <a target="_blank" href="https://mdbootstrap.com/education/bootstrap/" class="btn btn-outline-white btn-lg">Read More
+            <a target="_blank" href="about.php" class="btn btn-outline-white btn-lg">Read More
               <i class="fas fa-arrow-alt-circle-right ml-2"></i>
             </a>
           </div>
