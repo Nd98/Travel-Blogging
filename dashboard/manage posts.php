@@ -6,7 +6,7 @@
         header("Location: ../login.php");
     }
 
-    $posts_result = getAllBlogs();
+    $posts_result = getUserBlogs($_SESSION['username']);
 
 
 
