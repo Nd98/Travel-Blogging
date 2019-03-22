@@ -1,5 +1,6 @@
 <?php 
-    include('../database/connection.php');
+    @include('../database/connection.php');
+    @include('database/connection.php');
 
     function getAllBlogs(){
         $sql = "select * from blog_posts";
