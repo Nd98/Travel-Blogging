@@ -152,7 +152,7 @@
                             <h6 style="font-weight:bold">Date-Created</h6>
                         </div>
                         <div class="col-lg-6">
-                            <h6 style="font-weight:bold">Action</h6>
+                            <h6 style="font-weight:bold;text-align:center;margin-right:1.5rem">Action</h6>
                         </div>
                     </div>
                 </div>
@@ -193,7 +193,9 @@
                         <div class="col-lg-6">
                             <div class="row">
                                 <div class="col-lg-3">
-                                    <!--<button type="button" class="btn btn-success" data-toggle="modal" data-target="#addMembers">Add Members</button></div>-->
+                                    <a href="../view-blog.php?id='.$row['id'].'" class="btn btn-success"><i class="fas fa-eye"></i></a>
+                                </div>
+                                <div class="col-lg-3">
                                     <button name="'.$row['id'].'" onclick="toggleModel(this);" data-toggle="modal" data-target="#addMembers" class="btn btn-primary"><i class="fas fa-edit"></i></button>
                                 </div>
                                 <div class="col-lg-3">
