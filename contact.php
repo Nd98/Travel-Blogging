@@ -1,6 +1,6 @@
 <?php 
   session_start();
-  require('controllers/blogController.php'); 
+  require('controllers/contactController.php'); 
 
   $popular_posts_result = getPopularPosts();
   $popular_author_result = getPopularAuthors();
@@ -12,6 +12,16 @@
 
   else{
     echo "<script>var isLoggedIN = 'false';console.log(isLoggedIN)</script>";
+  }
+
+  if(isset($_POST['message'])){
+    $data[0] = $_POST['name'];
+    $data[1] = $_POST['email'];
+    $data[2] = $_POST['subject'];
+    $data[3] = $_POST['message'];
+
+    $isExecuted = setContact($data);
+
   }
 
   ?>
@@ -34,6 +44,12 @@
   <link href="vendor/animate/animate.css">
   <link href="vendor/animsition/css/animsition.min.css">
   <link href="vendor/animsition/js/animsition.min.js">
+
+  <!--===============================================================================================-->
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+<!-- ==============================================================================================-->
+<script src="js/bootstrap-notify.js"></script>
+<!-- ============================================================================================= -->
 
 </head>
 
@@ -122,7 +138,7 @@ else{
     <div class="row">
      <div class="col-lg-12 col-xl-9">
        <div class="mb-1"></div>
-       <form id="contact-form" name="contact-form" method="POST" action="">
+       <form id="contact-form" name="contact-form" method="POST" action="#">
            <div class="row">
             <div class="col-lg-6 col-xl-6">
                 <div class="md-form mb-0">
@@ -231,7 +247,7 @@ else{
                 </div>
                 </div>
               </div>
-            </div>
+          </div>
     </div>
   </div>
   </div>
@@ -279,6 +295,22 @@ else{
   </footer>
 
 <!--/.Footer-->
+
+
+<?php 
+  if(isset($_POST['message'])){
+    if($isExecuted){
+      $message = "Information sent successfully";
+      echo "<script> setNotify('$message');</script>";
+    }
+
+    else{
+      $message = "Something Went Wrong";
+      echo "<script> setNotify('$message');</script>";
+    }
+  }
+
+?>
 
   <!-- SCRIPTS -->
   <!-- JQuery -->
