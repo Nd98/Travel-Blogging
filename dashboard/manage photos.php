@@ -1,15 +1,37 @@
 <?php 
     session_start();
-    include('../controllers/blogController.php');
+    include('../controllers/photoController.php');
 
     if(!isset($_SESSION['username'])){
         header("Location: ../login.php");
     }
-    
+    if(isset($_POST['place'])){
+        $data[0] = 1;
+        $data[1] = $_SESSION['username'];
+        $data[2] = "img"."/places"."/".$_POST['place']."/".$_FILES['placeImage']['name'];
+        $data[3] = $_POST['place'];
+        $data[4] = $_FILES['placeImage']['tmp_name'];
 
+        
+        $isExecuted = insertPhotos($data);
+        
+        if($isExecuted){
+            
+            $_SESSION['created_message'] = "Photo Posted Successfully";
+            header("Location: manage photos.php");
+        }
+ 
+        else{
+            $_SESSION['created_message'] = "Something went wrong";
+            header("Location: manage photos.php");
+        }
+        
+     }
+     $posts_result=getPhotos();
+ 
+ ?>  
+   
 
-
-?>
 
 
 <!DOCTYPE html>
@@ -118,6 +140,7 @@
                 </div>
             </div>
         </div>
+        <form method="POST" action="#" enctype="multipart/form-data">
         <section class="container ">
         <div class="row">
         <div class="col-lg-6">
@@ -132,7 +155,7 @@
         </select>
         </div>
         <div class="col-lg-6">
-        <label class="my-1 mr-2" for="place-images">Upload Images: </label>
+        <label class="my-1 mr-2" for="place-images">Upload Images:</label>
         <div class="custom-file">
         <input required type="file" class="custom-file-input" id="places-images" name="placeImage">
         <label class="custom-file-label" for="customFile">Choose Image</label>
@@ -146,44 +169,72 @@
         </div> 
 
        
-        <table class="table" style="margin-top:15px">
-  <thead style="background-color:#272c33;">
-    <tr style="color:white">
-      <th scope="col">#</th>
-      <th scope="col">Image Name</th>
-      <th scope="col">Image Thumb</th>
-      <th scope="col">Operation</th>
-    </tr>
-  </thead>
-  <tbody>
-    <?php
-//   $dir = "upload";
-//   if(is_dir($dir)){
-//     if($dh = opendir($dir)){
-//       $count = 1;
-//       while($file = readdir($dh)){
-//         if($file != "." && $file != ".." && $file !=".DS_Store"){
-//           $dogFilter = explode("-",$file);
-//           $dogName = explode(".",$file);
-//           echo '
-//           <tr>
-//           <th scope="row">'.$count.'</th>
-//           <td>'.$dogName[0].'</td>
-//           <td><img src="upload/'.$file.'" height="30px" width="30px" /></td>
-//           <td><a class="btn btn-danger" href="dashboard.php?q='.$file.'" type="button">Delete</a></td>
-//         </tr>
-//         ';
-//         $count++;
-//         }
-        
-//       }
-//     }
-//   }
-    ?> 
-  </tbody>
-</table>                     
+        <div class="content">
+            <div class="row" style="margin-top:0.6rem">
+                <div class="col-lg-12 ">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <h6 style="font-weight:bold">ID</h6>
+                        </div>
+                        <div class="col-lg-3">
+                            <h6 style="font-weight:bold">Image Path </h6>
+                        </div>
+                        <div class="col-lg-3">
+                            <h6 style="font-weight:bold">Place</h6>
+                        </div>
+                        <div class="col-lg-3">
+                            <h6 style="font-weight:bold">Action</h6>
+                        </div>
+
+                    </div>
+                </div>
+
+                
+            </div>
+
+            <hr class="my-3">
+
+                <?php
+          if(mysqli_num_rows($posts_result) > 0){
+              $id = 1;
+              while($row = mysqli_fetch_assoc($posts_result)){
+
+                echo '
+                     
+                <div class="row" style="margin-top:0.6rem">
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div>'.$id.'</div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div id="Imagepath'.$row['id'].'">'.$row['image_path'].'</div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div id="imagecategory'.$row['id'].'">'.$row['image_category'].'</div>
+                        </div>
+                        <div class="col-lg-3">
+                                    <a href="deletephotos.php?id='.$row['id'].'" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                                </div>
+                        
+                    </div>
+                </div>                
+                
+            </div>
+
+            <hr class="my-3">
+            ';
+            $id+=1;
+    
+                  }
+              }
+               
+        ?>
+
+        </div>
+                   
         </section>
-        
+        </form>
 
         <script src="vendors/jquery/dist/jquery.min.js"></script>
     <script src="vendors/popper.js/dist/umd/popper.min.js"></script>

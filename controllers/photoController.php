@@ -1,5 +1,5 @@
 <?php 
-    include('database/connection.php');
+    include('../database/connection.php');
 
     function getPhotos(){
         
@@ -11,7 +11,7 @@
     }
 
     function getPhotosByCategory($category){
-        $sql = "select * from blog_photos where `image_category`='.$category.'";
+        $sql = "select * from blog_photos where `image_category`='$category'";
 
         $result = getData($sql);
         
@@ -23,15 +23,17 @@
         $username = $data[1];
         $image_path = $data[2];
         $image_category = $data[3];
-        $image_name = $data[4];
-        $tags = $data[5];
+        $image_temp= $data[4];
+        
 
-        $sql = "INSERT INTO `blog_photos`(`username`, `image_path`, `image_category`, `image_name`, `tags`) VALUES ('.$username.','.$image_path.','.$image_category.','.$image_name.','.$tags.')";
+        $sql = "INSERT INTO `blog_photos`(`username`, `image_path`, `image_category`) VALUES ('$username','$image_path','$image_category')";
 
         $isExecuted = setData($sql);
 
        if($isExecuted){
            //store the image-file;
+           move_uploaded_file($image_temp,"../".$image_path);
+
 
        }
 
@@ -39,7 +41,7 @@
     }
 
     function deletePhotos($id){
-        $sql = "Delete from blog_photos where id = '.$id.'";
+        $sql = "Delete from blog_photos where id = '$id'";
 
         $isExecuted = setData($sql);
 
