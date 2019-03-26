@@ -55,13 +55,7 @@
         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="places.php">Places</a>
-      </li>
-      <li class="nav-item">
         <a class="nav-link" href="photos.php">Photos</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="videos.php">Videos</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="about.php">About</a>

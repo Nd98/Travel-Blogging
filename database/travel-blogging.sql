@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 19, 2019 at 08:41 AM
+-- Generation Time: Mar 25, 2019 at 05:54 AM
 -- Server version: 10.1.29-MariaDB
 -- PHP Version: 7.2.0
 
@@ -59,7 +59,21 @@ CREATE TABLE `blog_posts` (
 --
 
 INSERT INTO `blog_posts` (`id`, `username`, `title`, `creation_date`, `excerpt`, `content`, `header_image`, `tags`) VALUES
-(1, 'nd', 'JavaScript', '2019-03-16', 'This is a javascript post', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  nulla pariatur.unt in culpa qui officia deserunt mollit anim id est laborum.', 'img/52.jpg', '');
+(13, 'nd', 'PHP', '2019-03-21', 'fjidhji', 'hridk', 'img/places/europe/4.PNG', 'oipjfehkd'),
+(14, 'nd', 'PHP', '2019-03-21', 'fjidhji', 'hridk', 'img/places/europe/4.PNG', 'oipjfehkd'),
+(15, 'nd', 'Manish', '2019-03-21', 'Tc-1', 'Tc-1 ka launda', 'img/places/europe/Capture10.PNG', 'maniya'),
+(16, 'nd', 'hklnj', '2019-03-21', 'h', 'hkjhhhjbbnjkhbh', 'img/places/east/18.PNG', 'h'),
+(17, 'nd', 'dcc', '2019-03-21', 'vfv', 'bmnh', 'img/places/east/5.PNG', 'hjg'),
+(18, 'nd', 'React', '2019-03-22', 'React', 'Reatc', 'img/places/asia/adv4.PNG', 'asia'),
+(19, 'nd', '', '2019-03-22', '', '', 'img/places/Choose place.../', 'Choose place...'),
+(20, 'nd', 'hey', '2019-03-22', 'jhdgc', 'kjsdn,m', 'img/places/asia/14-chess-png-image.png', 'asia'),
+(21, 'nd', '.kj/hj,fhm', '2019-03-22', ',m.bnvf', ',.mnbdc', 'img/places/asia/adv14.PNG', 'asia'),
+(22, 'nd', 'n,hjmh', '2019-03-22', 'n,mnb', 'n,mv', 'img/places/asia/87aae516-a3e2-4184-8a43-70b1d4b9afb3.png', 'asia'),
+(23, 'nd', 'lkhjkj', '2019-03-22', 'hjkg', 'jk.h,g', 'img/places/asia/87aae516-a3e2-4184-8a43-70b1d4b9afb3.png', 'asia'),
+(24, 'manish', 'k;hjdhvghxc', '2019-03-22', 'kjjsdghc', 'm,hjmdvsm', 'img/places/asia/18.PNG', 'asia'),
+(25, 'nd', 'k;hjgn', '2019-03-22', 'hjfgv', 'khjghfhg', 'img/places/asia/14-chess-png-image.png', 'asia'),
+(26, 'sp0031', 'hja', '2019-03-22', 'asdjjsabdjsabda', 'asd', 'img/places/asia/2.PNG', 'asia'),
+(27, 'bhaumik', 'Testing', '2019-03-23', 'This is sampple test case', 'qwertyuiopdfghjkl dfghjk4567890 ertyui90rfghjkvbn', 'img/places/asia/3.PNG', 'asia');
 
 -- --------------------------------------------------------
 
@@ -79,6 +93,27 @@ CREATE TABLE `blog_videos` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `contact_details`
+--
+
+CREATE TABLE `contact_details` (
+  `id` int(10) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `subject` varchar(100) NOT NULL,
+  `message` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `contact_details`
+--
+
+INSERT INTO `contact_details` (`id`, `name`, `email`, `subject`, `message`) VALUES
+(1, 'Nayan Dagliya', 'nayandagliya1998@gmail.com', 'hg', 'ghf');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `post_comments`
 --
 
@@ -88,6 +123,14 @@ CREATE TABLE `post_comments` (
   `post_id` int(10) NOT NULL,
   `comment` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `post_comments`
+--
+
+INSERT INTO `post_comments` (`id`, `username`, `post_id`, `comment`) VALUES
+(3, 'nd', 19, 'WOW'),
+(4, 'nd', 20, 'OHOOO');
 
 -- --------------------------------------------------------
 
@@ -108,7 +151,10 @@ CREATE TABLE `user_details` (
 --
 
 INSERT INTO `user_details` (`id`, `username`, `email`, `password`, `no_of_posts`) VALUES
-(1, 'nd', 'bptpgt@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 0);
+(1, 'nd', 'bptpgt@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 0),
+(2, 'manish', 'man@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 0),
+(3, 'sp0031', 'soham.parekh100639@marwadiuiiversity.ac.in', 'e4dc20af52acd07a1e1ec3de921ea719', 0),
+(4, 'bhaumik', 'bhaumik@gmail.com', 'daa96d9681a21445772454cbddf0cac1', 0);
 
 --
 -- Indexes for dumped tables
@@ -130,6 +176,12 @@ ALTER TABLE `blog_posts`
 -- Indexes for table `blog_videos`
 --
 ALTER TABLE `blog_videos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `contact_details`
+--
+ALTER TABLE `contact_details`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -158,7 +210,7 @@ ALTER TABLE `blog_photos`
 -- AUTO_INCREMENT for table `blog_posts`
 --
 ALTER TABLE `blog_posts`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `blog_videos`
@@ -167,16 +219,22 @@ ALTER TABLE `blog_videos`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `contact_details`
+--
+ALTER TABLE `contact_details`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `post_comments`
 --
 ALTER TABLE `post_comments`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `user_details`
 --
 ALTER TABLE `user_details`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -85,9 +85,6 @@
                     <li>
                         <a href="manage photos.php" > <i class="menu-icon fas fa-images"></i>Manage Photo's</a>
                     </li>
-                    <li>
-                        <a href="manage videos.php" > <i class="menu-icon fas fa-video"></i>Manage Videos</a>
-                    </li>
                     <li >
                         <a href="#" > <i class=" menu-icon fas fa-comments"></i>Manage Comments</a>
                     </li>

@@ -54,14 +54,8 @@
       <li class="nav-item">
         <a class="nav-link" href="index.php">Home</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="places.php">Places</a>
-      </li>
       <li class="nav-item active">
         <a class="nav-link" href="#">Photos <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="videos.php">Videos</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="about.php">About</a>
@@ -120,7 +114,7 @@ else{
       <h1 class="font-weight-bold my-5 ml-4">Photos</h1>
       
       <div id="prev" style="margin-bottom:20px;">
-      <button  class="btn btn-primary btn-md waves-effect waves-light" onclick="location.href='/Travel-Blogging/photos.php'">&laquo; Previous</a>
+      <button  class="btn btn-primary btn-md waves-effect waves-light" onclick="location.href='photos.php'">&laquo; Previous</a>
       </div>
       <script>
         $("#prev").hide();
@@ -598,7 +592,7 @@ else{
             <div class="col-sm-12 col-lg-4 col-xl-4 mb-4" id="east-1">
                 
                 <div class="view  zoom rounded z-depth-1-half mb-lg-0 mb-4" >
-                <img class="img-fluid" src="img/places/east/east-1.jpg" alt="Sample image"  >
+                <img class="img-fluid" src="img/places/middle-east/east-1.jpg" alt="Sample image"  >
                 <button id="btn-east-1"  >
                   <div class="mask rgba-white-slight">
                     <p class="fnt-img flex-center"> DUBAI</p>
@@ -616,7 +610,7 @@ else{
             <div class="col-sm-12 col-lg-4 col-xl-4 mb-4" id="east-2">
                 
                 <div class="view  zoom rounded z-depth-1-half mb-lg-0 mb-4" >
-                <img class="img-fluid" src="img/places/east/east-2.jpg" alt="Sample image"  >
+                <img class="img-fluid" src="img/places/middle-east/east-2.jpg" alt="Sample image"  >
                 <button id="btn-east-2"  >
                   <div class="mask rgba-white-slight">
                     <p class="fnt-img flex-center"> BEIRUT</p>
@@ -633,7 +627,7 @@ else{
             <div class="col-sm-12 col-lg-4 col-xl-4 mb-4" id="east-3">
                 
                 <div class="view  zoom rounded z-depth-1-half mb-lg-0 mb-4" >
-                <img class="img-fluid" src="img/places/east/east-3.jpg" alt="Sample image"  >
+                <img class="img-fluid" src="img/places/middle-east/east-3.jpg" alt="Sample image"  >
                 <button id="btn-east-3"  >
                   <div class="mask rgba-white-slight">
                     <p class="fnt-img flex-center"> BAALBEK MARKER</p>

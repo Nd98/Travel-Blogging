@@ -10,6 +10,15 @@
         return $result;
     }
 
+    function getPhotosByUserName($username){
+        
+        $sql = "select * from blog_photos where username='$username'";
+
+        $result = getData($sql);
+
+        return $result;
+    }
+
     function getPhotosByCategory($category){
         $sql = "select * from blog_photos where `image_category`='$category'";
 
